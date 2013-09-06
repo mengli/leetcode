@@ -22,44 +22,44 @@ public class Solution {
 	    return index;
 	}
 		
-		public void setIndex(int index) {
-			this.index = index;
-		}
-		
-		public int getValue() {
-			return value;
-		}
-		
-		public void setValue(int value) {
-			this.value = value;
-		}
+	public void setIndex(int index) {
+	    this.index = index;
 	}
+		
+	public int getValue() {
+	    return value;
+	}
+		
+	public void setValue(int value) {
+	    this.value = value;
+	}
+    }
 	
-	public int[] twoSum(int[] numbers, int target) {
-		Num[] newArray = new Num[numbers.length];
-		for (int i = 0; i < numbers.length; i++) {
-        	newArray[i] = new Num(numbers[i], i);
+    public int[] twoSum(int[] numbers, int target) {
+	Num[] newArray = new Num[numbers.length];
+	for (int i = 0; i < numbers.length; i++) {
+            newArray[i] = new Num(numbers[i], i);
         }
-		Arrays.sort(newArray, new Comparator<Num>() {
-			public int compare(Num n1, Num n2) {
-				if (n1.getValue() == n2.getValue()) return 0;
-				if (n1.getValue() > n2.getValue()) return 1;
-				return -1;
-			}
-		});
-		int[] result = new int[2];
-		int i = 0, j = numbers.length - 1;
+	Arrays.sort(newArray, new Comparator<Num>() {
+	    public int compare(Num n1, Num n2) {
+		if (n1.getValue() == n2.getValue()) return 0;
+		if (n1.getValue() > n2.getValue()) return 1;
+		    return -1;
+		}
+	    });
+	int[] result = new int[2];
+	int i = 0, j = numbers.length - 1;
         while (i < j) {
-        	int tmp = newArray[i].getValue() + newArray[j].getValue();
-        	if (tmp == target) {
-        		result[0] = Math.min(newArray[i].getIndex() + 1, newArray[j].getIndex() + 1);
+            int tmp = newArray[i].getValue() + newArray[j].getValue();
+            if (tmp == target) {
+        	result[0] = Math.min(newArray[i].getIndex() + 1, newArray[j].getIndex() + 1);
             	result[1] = Math.max(newArray[i].getIndex() + 1, newArray[j].getIndex() + 1);
-        		break;
-        	} else if (tmp > target) {
-        		j--;
-        	} else {
-        		i++;
-        	}
+        	break;
+            } else if (tmp > target) {
+        	j--;
+            } else {
+        	i++;
+            }
         }
         return result;
     }
