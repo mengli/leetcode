@@ -9,34 +9,34 @@ Given height = [2,1,5,6,2,3],
 return 10.
 
 public class Solution {
-	// O(n) using two stacks
-	public int largestRectangleArea(int[] height) {
-		int area = 0;
-		java.util.Stack<Integer> heightStack = new java.util.Stack<Integer>();
-		java.util.Stack<Integer> indexStack = new java.util.Stack<Integer>();
-		for (int i = 0; i < height.length; i++) {
-			if (heightStack.empty() || heightStack.peek() <= height[i]) {
-				heightStack.push(height[i]);
-				indexStack.push(i);
-			} else if (heightStack.peek() > height[i]) {
-				int j = 0;
-				while (!heightStack.empty() && heightStack.peek() > height[i]) {
-					j = indexStack.pop();
-					int currArea = (i - j) * heightStack.pop();
-					if (currArea > area) {
-						area = currArea;
-					}
-				}
-				heightStack.push(height[i]);
-				indexStack.push(j);
-			}
+     // O(n) using two stacks
+     public int largestRectangleArea(int[] height) {
+	int area = 0;
+	java.util.Stack<Integer> heightStack = new java.util.Stack<Integer>();
+	java.util.Stack<Integer> indexStack = new java.util.Stack<Integer>();
+	for (int i = 0; i < height.length; i++) {
+	    if (heightStack.empty() || heightStack.peek() <= height[i]) {
+		heightStack.push(height[i]);
+		indexStack.push(i);
+	    } else if (heightStack.peek() > height[i]) {
+		int j = 0;
+		while (!heightStack.empty() && heightStack.peek() > height[i]) {
+		    j = indexStack.pop();
+		    int currArea = (i - j) * heightStack.pop();
+		    if (currArea > area) {
+			area = currArea;
+		    }
 		}
-		while (!heightStack.empty()) {
-			int currArea = (height.length - indexStack.pop()) * heightStack.pop();
-			if (currArea > area) {
-				area = currArea;
-			}
-		}
-		return area;
+		heightStack.push(height[i]);
+		indexStack.push(j);
+	    }
 	}
+	while (!heightStack.empty()) {
+	    int currArea = (height.length - indexStack.pop()) * heightStack.pop();
+	    if (currArea > area) {
+		area = currArea;
+	    }
+	}
+	return area;
+    }
 }

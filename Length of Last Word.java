@@ -17,7 +17,7 @@ public class Solution {
         if (i < 0) return 0;
         int j = i;
         while (j - 1 >= 0 && s.charAt(j - 1) != ' ') {
-        	j--;
+            j--;
         }
         return i - j + 1;
     }

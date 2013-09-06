@@ -18,20 +18,20 @@ For now, the judge is able to judge based on one instance of gray code sequence.
 public class Solution {
     public ArrayList<Integer> grayCode(int n) {
     	ArrayList<Integer> result = new ArrayList<Integer>();
-		if (n == 0) {
+	if (n == 0) {
             result.add(0);
             return result;
     	};
-		result.add(0);
-		result.add(1);
-		for (int i = 1; i < n; i++) {
-			ArrayList<Integer> tmp = new ArrayList<Integer>(result);
-			Integer a = 1 << i;
-			for (int k = result.size() - 1; k >= 0; k--) {
-				tmp.add(result.get(k) + a);
-			}
-			result = tmp;
-		}
-		return result;
+	result.add(0);
+	result.add(1);
+	for (int i = 1; i < n; i++) {
+	    ArrayList<Integer> tmp = new ArrayList<Integer>(result);
+	    Integer a = 1 << i;
+	    for (int k = result.size() - 1; k >= 0; k--) {
+		tmp.add(result.get(k) + a);
+	    }
+	    result = tmp;
 	}
+	return result;
+    }
 }

@@ -10,13 +10,13 @@ public class Solution {
         int b = n - 1;
         while (a >= 0 && b >= 0) {
             if (A[a] >= B[b]) {
-        		A[end--] = A[a--];
-        	} else {
-        		A[end--] = B[b--];
-        	}
+                A[end--] = A[a--];
+            } else {
+        	A[end--] = B[b--];
+            }
         }
         while (b >= 0) {
-        	A[end--] = B[b--];
+            A[end--] = B[b--];
         }
     }
 }

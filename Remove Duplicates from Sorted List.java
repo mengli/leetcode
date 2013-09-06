@@ -24,7 +24,7 @@ public class Solution {
         while (p != null) {
             if (p.val == cur) {
                 prev.next = p.next;
-        		p = prev.next;
+        	p = prev.next;
             } else {
         	cur = p.val;
         	prev = prev.next;

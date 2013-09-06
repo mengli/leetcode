@@ -10,17 +10,17 @@ Your function should return length = 2, and A is now [1,2].
 public class Solution {
     public int removeDuplicates(int[] A) {
     	if (A.length == 0) return 0;
-		else if (A.length == 1) return 1;
-		else {
-			int ret = 1;
-			int p = 0;
-			for (int p1 = 1; p1 < A.length; p1++) {
-				if (A[p1 - 1] != A[p1]) {
-					ret++;
-					A[++p] = A[p1];
-				}
-			}
-			return ret;
+	else if (A.length == 1) return 1;
+	    else {
+	        int ret = 1;
+		int p = 0;
+		for (int p1 = 1; p1 < A.length; p1++) {
+		    if (A[p1 - 1] != A[p1]) {
+			ret++;
+			A[++p] = A[p1];
+		    }
 		}
+	        return ret;
+	    }
     }
 }

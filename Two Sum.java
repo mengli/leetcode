@@ -9,18 +9,18 @@ Output: index1=1, index2=2
 
 public class Solution {
     public class Num {
-		private int value;
-		private int index;
+	private int value;
+	private int index;
 		
-		public Num(int value, int index) {
-			super();
-			this.value = value;
-			this.index = index;
-		}
+	public Num(int value, int index) {
+	    super();
+	    this.value = value;
+	    this.index = index;
+	}
 
-		public int getIndex() {
-			return index;
-		}
+	public int getIndex() {
+	    return index;
+	}
 		
 		public void setIndex(int index) {
 			this.index = index;

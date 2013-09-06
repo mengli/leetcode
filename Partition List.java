@@ -20,35 +20,35 @@ return 1->2->2->4->3->5.
 public class Solution {
     public ListNode partition(ListNode head, int x) {
     	ListNode low = null;
-		ListNode high = null;
-		ListNode cl = null;
+	ListNode high = null;
+	ListNode cl = null;
     	ListNode ch = null;
-		ListNode cur = head;
-		while (cur != null) {
-			if (cur.val < x) {
-				ListNode newNode = new ListNode(cur.val);
-				if (low != null) {
-					cl.next = newNode;
-				} else {
-    			    low = newNode;   
-				}
-				cl = newNode;
-			} else {
-				ListNode newNode = new ListNode(cur.val);
-				if (high != null) {
-					ch.next = newNode;
-				} else {
-    			    high = newNode;   
-				}
-				ch = newNode;
-			}
-            cur = cur.next;
-		}
+	ListNode cur = head;
+	while (cur != null) {
+	    if (cur.val < x) {
+		ListNode newNode = new ListNode(cur.val);
 		if (low != null) {
-			cl.next = high;
-			return low;
+		    cl.next = newNode;
 		} else {
-			return high;
+    		    low = newNode;   
 		}
+		cl = newNode;
+	    } else {
+		ListNode newNode = new ListNode(cur.val);
+		if (high != null) {
+		    ch.next = newNode;
+		} else {
+    		    high = newNode;   
+		}
+		ch = newNode;
+	    }
+            cur = cur.next;
 	}
+	if (low != null) {
+	    cl.next = high;
+	    return low;
+	} else {
+	    return high;
+	}
+    }
 }

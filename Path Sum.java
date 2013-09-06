@@ -23,9 +23,9 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 public class Solution {
     public boolean hasPathSum(TreeNode root, int sum) {
     	if (root == null) return false;
-		if (root.left == null && root.right == null && root.val == sum) return true;
-		boolean l = root.left != null ? hasPathSum(root.left, sum - root.val) : false;
-		boolean r = root.right != null ? hasPathSum(root.right, sum - root.val) : false;
-		return l || r;
-	}
+	if (root.left == null && root.right == null && root.val == sum) return true;
+	boolean l = root.left != null ? hasPathSum(root.left, sum - root.val) : false;
+	boolean r = root.right != null ? hasPathSum(root.right, sum - root.val) : false;
+	return l || r;
+    }
 }

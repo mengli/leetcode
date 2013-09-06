@@ -34,23 +34,23 @@ The flattened tree should look like:
 public class Solution {
     public void flatten(TreeNode root) {
     	if (root == null || (root.left == null && root.right == null)) return;
-		if (root.left != null) {
-			TreeNode tmp = root.right;
-			root.right = root.left;
-			root.left = null;
-			TreeNode rightMost = findRightMostNode(root.right);
-			rightMost.right = tmp;
-			flatten(root.right);
-		} else if (root.right != null) {
-			flatten(root.right);
-		}
+	if (root.left != null) {
+	    TreeNode tmp = root.right;
+	    root.right = root.left;
+	    root.left = null;
+	    TreeNode rightMost = findRightMostNode(root.right);
+	    rightMost.right = tmp;
+	    flatten(root.right);
+	} else if (root.right != null) {
+	    flatten(root.right);
 	}
+    }
 	
-	public TreeNode findRightMostNode(TreeNode root) {
-		if (root.right != null) {
-			return findRightMostNode(root.right);
-		} else {
-			return root;
-		}
+    public TreeNode findRightMostNode(TreeNode root) {
+	if (root.right != null) {
+	    return findRightMostNode(root.right);
+	} else {
+	    return root;
 	}
+    }
 }

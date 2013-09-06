@@ -16,11 +16,11 @@ public class Solution {
         int t = x;
         while ((t = t / 10) != 0) k *= 10;
         while (x >= 10) {
-        	int d1 = x / k;
-        	int d2 = x - x / 10 * 10;
-        	if (d1 != d2) return false;
-        	x = x / 10 - d1 * (k - 1);
-        	k -= 2;
+            int d1 = x / k;
+            int d2 = x - x / 10 * 10;
+            if (d1 != d2) return false;
+            x = x / 10 - d1 * (k - 1);
+            k -= 2;
         }
         return true;
     }

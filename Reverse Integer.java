@@ -15,15 +15,15 @@ Throw an exception? Good, but what if throwing an exception is not an option? Yo
 public class Solution {
     public int reverse(int x) {
     	int num = Math.abs(x);
-		int ret = 0;
-		while (num != 0) {
-			int d = num - num / 10 * 10;
-			ret = ret * 10 + d;
+	int ret = 0;
+	while (num != 0) {
+	    int d = num - num / 10 * 10;
+	    ret = ret * 10 + d;
             num /= 10;
-		}
-		if (x < 0)
-			return -ret;
-		else
-			return ret;
 	}
+	if (x < 0)
+	    return -ret;
+	else
+	    return ret;
+    }
 }

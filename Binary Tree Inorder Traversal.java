@@ -28,17 +28,17 @@ public class Solution {
         s.add(root);
         TreeNode p = root.left;
         while (!s.empty()) {
-        	while (p != null) {
-        		s.add(p);
-        		p = p.left;
-        	}
-        	TreeNode n = s.pop();
-        	inOrder.add(n.val);
-        	p = n.right;
-        	if (p != null) {
-        		s.add(p);
-        		p = p.left;
-        	}
+            while (p != null) {
+        	s.add(p);
+        	p = p.left;
+            }
+            TreeNode n = s.pop();
+            inOrder.add(n.val);
+            p = n.right;
+            if (p != null) {
+        	s.add(p);
+        	p = p.left;
+            }
         }
         return inOrder;
     }

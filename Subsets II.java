@@ -27,12 +27,12 @@ public class Solution {
     private void subsets(int[] num, int begin, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> result) {
         result.add(new ArrayList<Integer>(path));
         for (int i = begin; i < num.length; i++) {
-        	if (i > begin && num[i - 1] == num[i]) {
-        		continue;
-        	}
-        	path.add(num[i]);
-        	subsets(num, i + 1, path, result);
-        	path.remove(path.size() - 1);
+            if (i > begin && num[i - 1] == num[i]) {
+                continue;
+            }
+            path.add(num[i]);
+            subsets(num, i + 1, path, result);
+            path.remove(path.size() - 1);
         }
-	}
+    }
 }

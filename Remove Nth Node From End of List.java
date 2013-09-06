@@ -28,13 +28,13 @@ public class Solution {
         ListNode p1 = root;
         int i = 0;
         while (i < n && p1.next != null) {
-        	i++;
-        	p1 = p1.next;
+            i++;
+            p1 = p1.next;
         }
         ListNode p2 = root;
         while (p1.next != null) {
-        	p1 = p1.next;
-        	p2 = p2.next;
+            p1 = p1.next;
+            p2 = p2.next;
         }
         p2.next = p2.next.next;
         return root.next;

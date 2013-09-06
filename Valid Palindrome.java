@@ -12,32 +12,29 @@ For the purpose of this problem, we define empty string as valid palindrome.
 public class Solution {
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
-        if (s.length() == 0)
-			return true;
-		else {
-			int begin = 0;
-			int end = s.length() - 1;
-			while (true) {
-				while (end > 0 && !((s.charAt(end) >= 'a' && s.charAt(end) <= 'z')
-						|| (s.charAt(end) >= 'A' && s.charAt(end) <= 'Z') || ((s.charAt(end) >= '0' && s.charAt(end) <= '9')))) {
-					end--;
-				}
-				while (begin < s.length() && !((s.charAt(begin) >= 'a' && s.charAt(begin) <= 'z')
-						|| (s.charAt(begin) >= 'A' && s.charAt(begin) <= 'Z' || ((s.charAt(begin) >= '0' && s.charAt(begin) <= '9'))))) {
-					begin++;
-				}
-				if (end - begin > 0) {
-					if (s.charAt(end) != s.charAt(begin)) {
-						return false;
-					}
-					else {
-						end--;
-						begin++;
-					}
-				} else {
-					return true;
-				}
-			}
+        if (s.length() == 0) return true;
+	else {
+	    int begin = 0;
+	    int end = s.length() - 1;
+	    while (true) {
+		while (end > 0 && !((s.charAt(end) >= 'a' && s.charAt(end) <= 'z') || (s.charAt(end) >= 'A' && s.charAt(end) <= 'Z') || ((s.charAt(end) >= '0' && s.charAt(end) <= '9')))) {
+		    end--;
 		}
-	}
+		while (begin < s.length() && !((s.charAt(begin) >= 'a' && s.charAt(begin) <= 'z') || (s.charAt(begin) >= 'A' && s.charAt(begin) <= 'Z' || ((s.charAt(begin) >= '0' && s.charAt(begin) <= '9'))))) {
+		    begin++;
+		}
+		if (end - begin > 0) {
+		    if (s.charAt(end) != s.charAt(begin)) {
+			return false;
+		    }
+		    else {
+			end--;
+			begin++;
+		    }
+		} else {
+		    return true;
+		}
+	    }
+        }
+    }
 }

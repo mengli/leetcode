@@ -15,15 +15,15 @@ Bonus point if you are able to do this using only O(n) extra space, where n is t
 
 public class Solution {
 	public int minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
-		int n = triangle.size() - 1;
+	int n = triangle.size() - 1;
         int[] path = new int[triangle.size()];
         for (int o = 0; o < triangle.get(n).size(); o++) {
-        	path[o] = triangle.get(n).get(o);
+            path[o] = triangle.get(n).get(o);
         }
         for (int i = triangle.size() - 2; i >= 0; i--) {
-        	for (int j = 0, t = 0; j < triangle.get(i + 1).size() - 1; j++, t++) {
-        		path[t] = triangle.get(i).get(t) + Math.min(path[j], path[j + 1]);
-        	}
+            for (int j = 0, t = 0; j < triangle.get(i + 1).size() - 1; j++, t++) {
+        	path[t] = triangle.get(i).get(t) + Math.min(path[j], path[j + 1]);
+            }
         }
         return path[0];
     }

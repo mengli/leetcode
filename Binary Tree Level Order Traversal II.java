@@ -35,27 +35,27 @@ public class Solution {
     	ArrayList<Integer> level = new ArrayList<Integer>();
     	q.add(root);
     	while(!q.isEmpty()) {
-    		TreeNode n = q.poll();
-    		curr--;
-    		level.add(n.val);
-    		if (n.left != null) {
-    			q.add(n.left);
-    			next++;
-    		}
-    		if (n.right != null) {
-    			q.add(n.right);
-    			next++;
-    		}
-    		if (curr == 0) {
-    			levels.add(level);
-    			level = new ArrayList<Integer>();
-    			curr = next;
-    			next = 0;
-    		}
+    	    TreeNode n = q.poll();
+    	    curr--;
+    	    level.add(n.val);
+    	    if (n.left != null) {
+    		q.add(n.left);
+    		next++;
+    	    }
+    	    if (n.right != null) {
+    		q.add(n.right);
+    		next++;
+    	    }
+    	    if (curr == 0) {
+    		levels.add(level);
+    		level = new ArrayList<Integer>();
+    		curr = next;
+    		next = 0;
+    	    }
     	}
     	ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
     	for (int i = levels.size() - 1; i >= 0; i--) {
-    		result.add(levels.get(i));
+    	    result.add(levels.get(i));
     	}
     	return result;
     }

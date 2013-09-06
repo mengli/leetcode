@@ -17,16 +17,16 @@ public class Solution {
         int end = A.length;
         for (int i = 0; i < end; i++) {
             if (A[i] == 0) {
-        		begin++;
-        		int tmp = A[begin];
-        		A[begin] = A[i];
-        		A[i] = tmp;
-        	} else if (A[i] == 2) {
-        		end--;
-        		int tmp = A[end];
-        		A[end] = A[i];
-        		A[i--] = tmp;
-        	}
+        	begin++;
+        	int tmp = A[begin];
+        	A[begin] = A[i];
+        	A[i] = tmp;
+            } else if (A[i] == 2) {
+        	end--;
+        	int tmp = A[end];
+        	A[end] = A[i];
+        	A[i--] = tmp;
+            }
         }
     }
 }

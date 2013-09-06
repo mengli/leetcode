@@ -22,11 +22,11 @@ public class Solution {
         else if (head.next == null) {
             return head;
         } else {
-        	ListNode nextList = swapPairs(head.next.next);
-        	ListNode tmp = head.next;
-        	head.next = nextList;
-        	tmp.next = head;
-        	return tmp;
+            ListNode nextList = swapPairs(head.next.next);
+            ListNode tmp = head.next;
+            head.next = nextList;
+            tmp.next = head;
+            return tmp;
         }
     }
 }

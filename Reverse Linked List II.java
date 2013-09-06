@@ -18,32 +18,31 @@ return 1->4->3->2->5->NULL.
  */
 public class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
-    	if (head == null)
-			return head;
-		int start = 1, end = 0;
-		ListNode s = head;
-		ListNode p = null;
-		while (start++ < m && s != null) {
-			p = s;
-			s = s.next;
-		}
-		ListNode cur = null;
-		ListNode next = null;
-		ListNode prev = null;
-		end = m;
-		cur = s;
-		while (end++ <= n && cur != null) {
-			next = cur.next;
-			cur.next = prev;
-			prev = cur;
-			cur = next;
-		}
-		s.next = cur;
-		if (p != null) {
-			p.next = prev;
-			return head;
-		} else {
-			return prev;
-		}
+    	if (head == null) return head;
+	int start = 1, end = 0;
+	ListNode s = head;
+	ListNode p = null;
+	while (start++ < m && s != null) {
+	    p = s;
+	    s = s.next;
 	}
+	ListNode cur = null;
+	ListNode next = null;
+	ListNode prev = null;
+	end = m;
+	cur = s;
+	while (end++ <= n && cur != null) {
+	    next = cur.next;
+	    cur.next = prev;
+	    prev = cur;
+	    cur = next;
+	}
+	s.next = cur;
+	if (p != null) {
+	    p.next = prev;
+	    return head;
+	} else {
+	    return prev;
+	}
+    }
 }

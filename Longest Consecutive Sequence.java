@@ -14,7 +14,7 @@ public class Solution {
             h.add(n);
         }
         for (int n : num) {
-        	max = Math.max(max, getCount(h, n, false) + getCount(h, n + 1, true));
+            max = Math.max(max, getCount(h, n, false) + getCount(h, n + 1, true));
         }
         return max;
     }
@@ -22,12 +22,12 @@ public class Solution {
     public int getCount(HashSet<Integer> h, int value, boolean asc) {
     	int count = 0;
     	while (h.contains(value)) {
-    		count++;
+    	    count++;
             h.remove(value);
-    		if (asc)
-    			value++;
-    		else
-    			value--;
+    	    if (asc)
+    		value++;
+    	    else
+    		value--;
     	}
     	return count;
     }

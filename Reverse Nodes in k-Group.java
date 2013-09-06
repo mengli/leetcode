@@ -26,34 +26,33 @@ For k = 3, you should return: 3->2->1->4->5
  */
 public class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-    	if (head == null)
-			return null;
-		int t = 0;
-		ListNode nextHead = head;
-		while (nextHead != null && t < k - 1) {
-			nextHead = nextHead.next;
-			t++;
-		}
-		if (nextHead == null || t < k - 1) {
-			return head;
-		} else {
-			ListNode nextPart = reverseKGroup(nextHead.next, k);
-			return reverseList(head, k, nextPart);
-		}
+    	if (head == null) return null;
+	int t = 0;
+	ListNode nextHead = head;
+	while (nextHead != null && t < k - 1) {
+	    nextHead = nextHead.next;
+	    t++;
 	}
+	if (nextHead == null || t < k - 1) {
+	    return head;
+	} else {
+	    ListNode nextPart = reverseKGroup(nextHead.next, k);
+	    return reverseList(head, k, nextPart);
+	}
+    }
 
-	private ListNode reverseList(ListNode head, int k, ListNode nextPart) {
-		ListNode cur = head, prev = null, next = null;
-		for (int i = 0; i < k; i++) {
-			next = cur.next;
-			if (i != 0) {
-				cur.next = prev;
-			} else {
-				cur.next = nextPart;
-			}
-			prev = cur;
-			cur = next;
-		}
-		return prev;
+    private ListNode reverseList(ListNode head, int k, ListNode nextPart) {
+	ListNode cur = head, prev = null, next = null;
+	for (int i = 0; i < k; i++) {
+	    next = cur.next;
+	    if (i != 0) {
+		cur.next = prev;
+	    } else {
+		cur.next = nextPart;
+	    }
+	    prev = cur;
+	    cur = next;
 	}
+	return prev;
+    }
 }

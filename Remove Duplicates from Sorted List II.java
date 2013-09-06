@@ -18,30 +18,30 @@ Given 1->1->1->2->3, return 2->3.
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
     	ListNode begin = head;
-		ListNode cur = head;
-		ListNode newHead = null;
-		ListNode newTail = null;
-		while (cur != null) {
-			while (cur.next != null && begin.val == cur.next.val) {
-				cur = cur.next;
-			}
-			if (begin != cur) {
-				begin = cur.next;
-				cur = cur.next;
-			} else {
-				ListNode tmp = begin;
-				begin = begin.next;
-				cur = cur.next;
-				if (newHead == null) {
-					newHead = tmp;
-					newTail = tmp;
-				} else {
-					newTail.next = tmp;
-					newTail = newTail.next;
-				}
-				newTail.next = null;
-			}
+	ListNode cur = head;
+	ListNode newHead = null;
+	ListNode newTail = null;
+	while (cur != null) {
+	    while (cur.next != null && begin.val == cur.next.val) {
+		cur = cur.next;
+	    }
+	    if (begin != cur) {
+		begin = cur.next;
+		cur = cur.next;
+	    } else {
+		ListNode tmp = begin;
+		begin = begin.next;
+		cur = cur.next;
+		if (newHead == null) {
+		    newHead = tmp;
+		    newTail = tmp;
+		} else {
+		    newTail.next = tmp;
+		    newTail = newTail.next;
 		}
-		return newHead;
+	        newTail.next = null;
+	    }
 	}
+	return newHead;
+    }
 }
