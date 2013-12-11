@@ -12,7 +12,7 @@ package leetcode;
  * For example, Given s = "Hello World", return 5.
  */
 
-public class Solution {
+public class LengthofLastWord {
 	public int lengthOfLastWord(String s) {
 		int i = s.length() - 1;
 		while (i >= 0 && s.charAt(i) == ' ') {

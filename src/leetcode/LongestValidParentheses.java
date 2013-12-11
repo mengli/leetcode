@@ -13,7 +13,7 @@ import java.util.Stack;
  * "()()", which has length = 4.
  */
 
-public class Solution {
+public class LongestValidParentheses {
 	public int longestValidParentheses(String s) {
 		int maxLen = 0, last = -1;
 		Stack<Integer> lefts = new Stack<Integer>();

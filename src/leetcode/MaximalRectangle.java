@@ -5,7 +5,7 @@ package leetcode;
  * containing all ones and return its area.
  */
 
-public class Solution {
+public class MaximalRectangle {
 	public int maximalRectangle(char[][] matrix) {
 		int row = matrix.length;
 		if (row == 0)

@@ -14,7 +14,7 @@ package leetcode;
  * A = [3,2,1,0,4], return false.
  */
 
-public class Solution {
+public class JumpGame {
 	public boolean canJump(int[] A) {
 		if (A.length <= 1)
 			return true;

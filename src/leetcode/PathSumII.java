@@ -30,7 +30,7 @@ return
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class PathSumII {
 	public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		if (root != null) {

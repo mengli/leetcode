@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * [1,2,1], and [2,1,1].
  */
 
-public class Solution {
+public class PermutationsII {
 	public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		permuteUnique(num, 0, result);

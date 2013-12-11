@@ -21,7 +21,7 @@ X X X X
 X O X X
 */
 
-public class Solution {
+public class SurroundedRegions {
 
 	public class Point {
 		public int x;

@@ -31,7 +31,7 @@ Bonus points if you could solve it both recursively and iteratively.
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class SymmetricTree {
 	public boolean isSymmetric(TreeNode root) {
 		ArrayList<String> inOrder = new ArrayList<String>();
 		inOrder(root, inOrder);

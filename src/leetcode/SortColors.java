@@ -18,7 +18,7 @@ package leetcode;
  * Could you come up with an one-pass algorithm using only constant space?
  */
 
-public class Solution {
+public class SortColors {
 	public void sortColors(int[] A) {
 		int begin = -1;
 		int end = A.length;

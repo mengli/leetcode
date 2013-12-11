@@ -9,7 +9,7 @@ package leetcode;
  * Note: You may not slant the container.
  */
 
-public class Solution {
+public class ContainerWithMostWater {
 	public int maxArea(int[] height) {
 		int len = height.length, low = 0, high = len - 1;
 		int maxArea = 0;

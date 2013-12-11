@@ -10,7 +10,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class SameTree {
 	public boolean isSameTree(TreeNode p, TreeNode q) {
 		if (p == null && q == null)
 			return true;

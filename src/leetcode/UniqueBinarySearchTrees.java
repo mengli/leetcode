@@ -12,7 +12,7 @@ Given n = 3, there are a total of 5 unique BST's.
    2     1         2                 3
    */
 
-public class Solution {
+public class UniqueBinarySearchTrees {
 	public int numTrees(int n) {
 		if (n == 1)
 			return 1;

@@ -8,7 +8,7 @@ package leetcode;
  * implement it without using extra memory?
  */
 
-public class Solution {
+public class SingleNumber {
 	public int singleNumber(int[] A) {
 		int ret = A[0];
 		for (int i = 1; i < A.length; i++) {

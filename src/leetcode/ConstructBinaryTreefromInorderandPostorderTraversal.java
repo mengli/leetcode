@@ -11,7 +11,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class ConstructBinaryTreefromInorderandPostorderTraversal {
 	public TreeNode buildTree(int[] inorder, int[] postorder) {
 		return buildTree(inorder, 0, inorder.length - 1, postorder, 0,
 				postorder.length - 1);

@@ -13,7 +13,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class ValidateBinarySearchTree {
 	public boolean isValidBST(TreeNode root) {
 		if (root == null)
 			return true;

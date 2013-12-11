@@ -11,7 +11,7 @@ package leetcode;
  * [1,3,5,6], 0 ¡ú 0
  */
 
-public class Solution {
+public class SearchInsertPosition {
 	public int searchInsert(int[] A, int target) {
 		return search(A, target, 0, A.length - 1);
 	}

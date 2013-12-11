@@ -7,7 +7,7 @@ package leetcode;
  * you climb to the top?
  */
 
-public class Solution {
+public class ClimbingStairs {
 	public int climbStairs(int n) {
 		int[] arr = new int[n + 1];
 		arr[0] = 1;

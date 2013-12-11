@@ -7,7 +7,7 @@ package leetcode;
  * Note: You can only move either down or right at any point in time.
  */
 
-public class Solution {
+public class MinimumPathSum {
 	public int minPathSum(int[][] grid) {
 		int[][] path = new int[grid.length][grid[0].length];
 		path[0][0] = grid[0][0];

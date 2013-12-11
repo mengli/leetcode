@@ -17,7 +17,7 @@ import java.util.Arrays;
  * A solution set is: (-1, 0, 1) (-1, -1, 2)
  */
 
-public class Solution {
+public class ThreeSum {
 	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		Arrays.sort(num);

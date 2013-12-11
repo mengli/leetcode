@@ -6,7 +6,7 @@ package leetcode;
  * Input is guaranteed to be within the range from 1 to 3999.
  */
 
-public class Solution {
+public class RomantoInteger {
 	public int romanToInt(String s) {
 		int result = 0;
 		if (s.length() != 0) {

@@ -10,7 +10,7 @@ package leetcode;
  * 1 / \ 2 3 Return 6.
  */
 
-public class Solution {
+public class BinaryTreeMaximumPathSum {
 
 	public class MyInt {
 

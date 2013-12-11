@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Interval() { start = 0; end = 0; } Interval(int s, int e) { start = s; end =
  * e; } }
  */
-public class Solution {
+public class MergeIntervals {
 	public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
 		int size = intervals.size();
 		int count;

@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * sequence. Sorry about that.
  */
 
-public class Solution {
+public class GrayCode {
 	public ArrayList<Integer> grayCode(int n) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		if (n == 0) {

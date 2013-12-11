@@ -16,7 +16,7 @@ import java.util.Comparator;
  * Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2
  */
 
-public class Solution {
+public class TwoSum {
 	public class Num {
 		private int value;
 		private int index;

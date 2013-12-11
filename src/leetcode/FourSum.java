@@ -18,7 +18,7 @@ import java.util.Arrays;
  * A solution set is: (-1, 0, 0, 1) (-2, -1, 1, 2) (-2, 0, 0, 2)
  */
 
-public class Solution {
+public class FourSum {
 	public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
 		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
 		Arrays.sort(num);

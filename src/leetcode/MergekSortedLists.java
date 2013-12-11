@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; next = null; } }
  */
-public class Solution {
+public class MergekSortedLists {
 	public ListNode mergeKLists(ArrayList<ListNode> lists) {
 		if (lists == null || lists.isEmpty())
 			return null;

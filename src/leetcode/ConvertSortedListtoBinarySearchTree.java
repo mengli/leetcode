@@ -17,7 +17,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class ConvertSortedListtoBinarySearchTree {
 	public TreeNode sortedListToBST(ListNode head) {
 		ListNode n = head;
 		int size = 0;

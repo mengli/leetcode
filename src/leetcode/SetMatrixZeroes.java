@@ -9,7 +9,7 @@ package leetcode;
  * still not the best solution. Could you devise a constant space solution?
  */
 
-public class Solution {
+public class SetMatrixZeroes {
 	public void setZeroes(int[][] matrix) {
 		int row = matrix.length;
 		if (row == 0)

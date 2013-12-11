@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * [ ["aa","b"], ["a","a","b"] ]
  */
 
-public class Solution {
+public class PalindromePartitioning {
 	public ArrayList<ArrayList<String>> partition(String s) {
 		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
 		ArrayList<String> pt = new ArrayList<String>();

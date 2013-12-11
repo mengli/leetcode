@@ -13,7 +13,7 @@ package leetcode;
  * For example, Given height = [2,1,5,6,2,3], return 10.
  */
 
-public class Solution {
+public class LargestRectangleinHistogram {
 	// O(n) using two stacks
 	public int largestRectangleArea(int[] height) {
 		int area = 0;

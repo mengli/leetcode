@@ -29,7 +29,7 @@ package leetcode;
  * (2147483647) or INT_MIN (-2147483648) is returned.
  */
 
-public class Solution {
+public class StringtoIntegerAtoi {
 	public int atoi(String str) {
 		int len = str.length();
 		if (len == 0)

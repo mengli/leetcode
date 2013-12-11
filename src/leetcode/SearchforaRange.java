@@ -11,7 +11,7 @@ package leetcode;
  * For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
  */
 
-public class Solution {
+public class SearchforaRange {
 	public int[] searchRange(int[] A, int target) {
 		int low = findLow(A, target, 0, A.length - 1);
 		int high = findHigh(A, target, 0, A.length - 1);

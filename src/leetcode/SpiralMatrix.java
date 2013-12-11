@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * [1,2,3,6,9,8,7,4,5].
  */
 
-public class Solution {
+public class SpiralMatrix {
 	public ArrayList<Integer> spiralOrder(int[][] matrix) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		if (matrix.length == 0)

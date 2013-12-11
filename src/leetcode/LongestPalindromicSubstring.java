@@ -6,7 +6,7 @@ package leetcode;
  * palindromic substring.
  */
 
-public class Solution {
+public class LongestPalindromicSubstring {
 	public String longestPalindrome(String s) {
 		int length = s.length();
 		String result = "";

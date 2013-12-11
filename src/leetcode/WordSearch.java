@@ -13,7 +13,7 @@ package leetcode;
  * "SEE", -> returns true, word = "ABCB", -> returns false.
  */
 
-public class Solution {
+public class WordSearch {
 	public boolean exist(char[][] board, String word) {
 		int height = board.length;
 		int width = board[0].length;

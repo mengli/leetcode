@@ -16,7 +16,7 @@ package leetcode;
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; next = null; } }
  */
-public class Solution {
+public class RemoveNthNodeFromEndofList {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
 		if (head == null)
 			return head;

@@ -13,7 +13,7 @@ import java.util.Set;
  * Return true because "leetcode" can be segmented as "leet code".
  */
 
-public class Solution {
+public class WordBreak {
 	public boolean wordBreak(String s, Set<String> dict) {
 		Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
 		for (String w : dict) {

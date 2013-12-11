@@ -31,7 +31,7 @@ After calling your function, the tree should look like:
  *     TreeLinkNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class PopulatingNextRightPointersinEachNodeII {
 	public void connect(TreeLinkNode root) {
 		TreeLinkNode currentBegin = root, prevBegin = null;
 		while (currentBegin != null) {

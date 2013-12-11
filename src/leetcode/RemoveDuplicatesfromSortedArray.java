@@ -12,7 +12,7 @@ package leetcode;
  * Your function should return length = 2, and A is now [1,2].
  */
 
-public class Solution {
+public class RemoveDuplicatesfromSortedArray {
 	public int removeDuplicates(int[] A) {
 		if (A.length == 0)
 			return 0;

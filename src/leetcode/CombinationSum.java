@@ -18,7 +18,7 @@ import java.util.Arrays;
  * 2, 3]
  */
 
-public class Solution {
+public class CombinationSum {
 	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates,
 			int target) {
 		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();

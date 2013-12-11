@@ -15,7 +15,7 @@ package leetcode;
  * There is a more generic way of solving this problem.
  */
 
-public class Solution {
+public class PalindromeNumber {
 	public boolean isPalindrome(int x) {
 		if (x < 0)
 			return false;

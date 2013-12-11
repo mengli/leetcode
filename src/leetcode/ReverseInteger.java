@@ -19,7 +19,7 @@ package leetcode;
  * You would then have to re-design the function (ie, add an extra parameter).
  */
 
-public class Solution {
+public class ReverseInteger {
 	public int reverse(int x) {
 		int num = Math.abs(x);
 		int ret = 0;

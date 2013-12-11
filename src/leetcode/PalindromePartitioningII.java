@@ -9,7 +9,7 @@ package leetcode;
  * D[i] = min(1+D[j+1], D[i]) i<=j<n s[i, j] is palindrome
  */
 
-public class Solution {
+public class PalindromePartitioningII {
 	public int minCut(String s) {
 		int length = s.length();
 		int[] dp = new int[length + 1];

@@ -14,7 +14,7 @@ import java.util.Arrays;
  * [ [2], [1], [1,2,2], [2,2], [1,2], [] ]
  */
 
-public class Solution {
+public class SubsetsII {
 	public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] num) {
 		Arrays.sort(num);
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();

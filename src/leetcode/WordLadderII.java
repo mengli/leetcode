@@ -22,7 +22,7 @@ import java.util.Queue;
  * characters.
  */
 
-public class Solution {
+public class WordLadderII {
 	public ArrayList<ArrayList<String>> findLadders(String start, String end,
 			HashSet<String> dict) {
 		ArrayList<ArrayList<String>> ret = new ArrayList<ArrayList<String>>();

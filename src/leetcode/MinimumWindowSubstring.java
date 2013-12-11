@@ -13,7 +13,7 @@ package leetcode;
  * be only one unique minimum window in S.
  */
 
-public class Solution {
+public class MinimumWindowSubstring {
 	public String minWindow(String S, String T) {
 		int sLen = S.length();
 		int tLen = T.length();

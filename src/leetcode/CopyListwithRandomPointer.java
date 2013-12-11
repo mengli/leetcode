@@ -10,7 +10,7 @@ package leetcode;
  * { int label; RandomListNode next, random; RandomListNode(int x) { this.label
  * = x; } };
  */
-public class Solution {
+public class CopyListwithRandomPointer {
 	public RandomListNode copyRandomList(RandomListNode head) {
 		if (head == null)
 			return head;

@@ -9,7 +9,7 @@ import java.util.HashMap;
  * is "b", with the length of 1.
  */
 
-public class Solution {
+public class LongestSubstringWithoutRepeatingCharacters {
 	public int lengthOfLongestSubstring(String s) {
 		if (s.length() == 0)
 			return 0;

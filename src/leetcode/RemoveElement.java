@@ -8,7 +8,7 @@ package leetcode;
  * the new length.
  */
 
-public class Solution {
+public class RemoveElement {
 	public int removeElement(int[] A, int elem) {
 		if (A.length == 0)
 			return 0;

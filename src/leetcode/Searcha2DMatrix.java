@@ -16,7 +16,7 @@ Consider the following matrix:
 Given target = 3, return true.
 */
 
-public class Solution {
+public class Searcha2DMatrix {
 	public boolean searchMatrix(int[][] matrix, int target) {
 		int length = matrix.length;
 		if (length == 0)

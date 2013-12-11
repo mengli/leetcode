@@ -13,7 +13,7 @@ package leetcode;
  * For the purpose of this problem, we define empty string as valid palindrome.
  */
 
-public class Solution {
+public class ValidPalindrome {
 	public boolean isPalindrome(String s) {
 		s = s.toLowerCase();
 		if (s.length() == 0)

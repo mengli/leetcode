@@ -10,7 +10,7 @@ import java.util.Stack;
  * but "(]" and "([)]" are not.
  */
 
-public class Solution {
+public class ValidParentheses {
 	public boolean isValid(String s) {
 		int len = s.length();
 		if (len == 0)

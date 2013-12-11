@@ -8,7 +8,7 @@ package leetcode;
  * Your algorithm should run in O(n) time and uses constant space.
  */
 
-public class Solution {
+public class FirstMissingPositive {
 	public int firstMissingPositive(int[] A) {
 		if (A.length == 0)
 			return 1;

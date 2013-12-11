@@ -22,7 +22,7 @@ import java.util.Queue;
  * length. All words contain only lowercase alphabetic characters.
  */
 
-public class Solution {
+public class WordLadder {
 	public int ladderLength(String start, String end, HashSet<String> dict) {
 		if (dict.isEmpty()) {
 			return 0;

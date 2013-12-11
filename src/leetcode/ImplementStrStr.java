@@ -7,7 +7,7 @@ package leetcode;
  * needle is not part of haystack.
  */
 
-public class Solution {
+public class ImplementStrStr {
 	public String strStr(String haystack, String needle) {
 		int i = 0;
 		int len1 = haystack.length();

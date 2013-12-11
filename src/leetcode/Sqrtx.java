@@ -6,7 +6,7 @@ package leetcode;
  * Compute and return the square root of x.
  */
 
-public class Solution {
+public class Sqrtx {
 	public int sqrt(int x) {
 		double x0 = x / 2.0;
 		double x1 = (x0 + x / x0) / 2.0;

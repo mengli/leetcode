@@ -14,7 +14,7 @@ import java.util.HashMap;
  * You should return the indices: [0,9]. (order does not matter).
  */
 
-public class Solution {
+public class SubstringwithConcatenationofAllWords {
 	public ArrayList<Integer> findSubstring(String S, String[] L) {
 		int slen = S.length();
 		int m = L.length;

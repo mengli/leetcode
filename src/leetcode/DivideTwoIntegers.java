@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Divide two integers without using multiplication, division and mod operator.
  */
 
-public class Solution {
+public class DivideTwoIntegers {
 	public int divide(int dividend, int divisor) {
 		if (dividend == 0)
 			return 0;

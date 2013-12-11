@@ -19,7 +19,7 @@ import java.util.Set;
  * A solution is ["cats and dog", "cat sand dog"].
  */
 
-public class Solution {
+public class WordBreakII {
 	public ArrayList<String> wordBreak(String s, Set<String> dict) {
 		Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
 		for (String w : dict) {

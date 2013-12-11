@@ -2,7 +2,7 @@ package leetcode;
 
 /** Implement pow(x, n) */
 
-public class Solution {
+public class PowXN {
 	public double pow(double x, int n) {
 		if (n == 0)
 			return 1;

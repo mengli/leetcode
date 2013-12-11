@@ -20,7 +20,7 @@ package leetcode;
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; next = null; } }
  */
-public class Solution {
+public class ReverseNodesinkGroup {
 	public ListNode reverseKGroup(ListNode head, int k) {
 		if (head == null)
 			return null;

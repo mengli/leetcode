@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * "((()))", "(()())", "(())()", "()(())", "()()()"
  */
 
-public class Solution {
+public class GenerateParentheses {
 	public ArrayList<String> generateParenthesis(int n) {
 		ArrayList<String> ret = new ArrayList<String>();
 		StringBuilder sb = new StringBuilder();

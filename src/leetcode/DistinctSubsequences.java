@@ -17,7 +17,7 @@ package leetcode;
  * the number of distinct sub-sequence for T[0:j] in S[0:i].
  */
 
-public class Solution {
+public class DistinctSubsequences {
 	public int numDistinct(String S, String T) {
 		int[][] f = new int[S.length() + 1][T.length() + 1];
 		for (int k = 0; k < S.length(); k++)

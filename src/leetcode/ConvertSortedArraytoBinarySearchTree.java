@@ -8,7 +8,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class ConvertSortedArraytoBinarySearchTree {
 	public TreeNode sortedArrayToBST(int[] num) {
 		return sortedArrayToBST(num, 0, num.length - 1);
 	}

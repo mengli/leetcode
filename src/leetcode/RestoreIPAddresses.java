@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
  */
 
-public class Solution {
+public class RestoreIPAddresses {
 	public ArrayList<String> restoreIpAddresses(String s) {
 		ArrayList<String> ips = new ArrayList<String>();
 		StringBuffer sb = new StringBuffer();

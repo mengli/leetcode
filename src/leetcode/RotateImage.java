@@ -8,7 +8,7 @@ package leetcode;
  * Follow up: Could you do this in-place?
  */
 
-public class Solution {
+public class RotateImage {
 	public void rotate(int[][] matrix) {
 		int n = matrix.length;
 		if (n == 0)

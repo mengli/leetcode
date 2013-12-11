@@ -6,7 +6,7 @@ package leetcode;
  * Input is guaranteed to be within the range from 1 to 3999.
  */
 
-public class Solution {
+public class IntegertoRoman {
 	public String intToRoman(int num) {
 		String a[][] = {
 				{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },

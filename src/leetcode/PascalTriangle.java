@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * [ [1], [1,1], [1,2,1], [1,3,3,1], [1,4,6,4,1] ]
  */
 
-public class Solution {
+public class PascalTriangle {
 	public ArrayList<ArrayList<Integer>> pascalTriangle(int numRows) {
 		ArrayList<ArrayList<Integer>> pt = new ArrayList<ArrayList<Integer>>();
 		int k = 1;

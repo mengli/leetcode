@@ -34,7 +34,7 @@ The flattened tree should look like:
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+public class FlattenBinaryTreetoLinkedList {
 	public void flatten(TreeNode root) {
 		if (root == null || (root.left == null && root.right == null))
 			return;

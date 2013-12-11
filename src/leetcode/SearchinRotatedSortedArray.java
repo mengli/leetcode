@@ -11,7 +11,7 @@ package leetcode;
  * You may assume no duplicate exists in the array.
  */
 
-public class Solution {
+public class SearchinRotatedSortedArray {
 	public int search(int[] A, int target) {
 		int low = 0;
 		int high = A.length - 1;

@@ -12,7 +12,7 @@ package leetcode;
  * Note: The sequence of integers will be represented as a string.
  */
 
-public class Solution {
+public class CountandSay {
 	public String countAndSay(int n) {
 		StringBuilder s1 = new StringBuilder("1");
 		StringBuilder s2 = new StringBuilder();

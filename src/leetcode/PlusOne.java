@@ -2,7 +2,7 @@ package leetcode;
 
 /** Given a number represented as an array of digits, plus one to the number. */
 
-public class Solution {
+public class PlusOne {
 	public int[] plusOne(int[] digits) {
 		int advance = 0;
 		int i = digits.length - 1;

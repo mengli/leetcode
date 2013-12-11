@@ -13,7 +13,7 @@ package leetcode;
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; next = null; } }
  */
-public class Solution {
+public class PartitionList {
 	public ListNode partition(ListNode head, int x) {
 		ListNode low = null;
 		ListNode high = null;

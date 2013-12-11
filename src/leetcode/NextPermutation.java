@@ -16,7 +16,7 @@ import java.util.Arrays;
  * 1,2,3 1,1,5 ¡ú 1,5,1
  */
 
-public class Solution {
+public class NextPermutation {
 	public void nextPermutation(int[] num) {
 		int i1 = 0;
 		int i2 = 0;

@@ -12,7 +12,7 @@ import java.util.HashSet;
  * Your algorithm should run in O(n) complexity.
  */
 
-public class Solution {
+public class LongestConsecutiveSequence {
 	public int longestConsecutive(int[] num) {
 		int max = 0;
 		HashSet<Integer> h = new HashSet<Integer>();
