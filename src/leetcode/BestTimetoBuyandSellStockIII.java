@@ -11,7 +11,7 @@ package leetcode;
  * must sell the stock before you buy again).
  */
 
-public class Solution {
+public class BestTimetoBuyandSellStockIII {
 	public int maxProfit(int[] prices) {
 		if (prices.length < 2)
 			return 0;

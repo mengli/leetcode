@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * where n is the total number of rows in the triangle.
  */
 
-public class Solution {
+public class Triangle {
 	public int minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
 		int n = triangle.size() - 1;
 		int[] path = new int[triangle.size()];

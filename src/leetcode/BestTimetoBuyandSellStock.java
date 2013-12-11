@@ -9,7 +9,7 @@ package leetcode;
  * profit.
  */
 
-public class Solution {
+public class BestTimetoBuyandSellStock {
 	public int maxProfit(int[] prices) {
 		int lowest = 0;
 		int maxProfit = 0;

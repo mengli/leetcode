@@ -13,7 +13,7 @@ import java.util.Arrays;
  * [ [3], [1], [2], [1,2,3], [1,3], [2,3], [1,2], [] ]
  */
 
-public class Solution {
+public class Subsets {
 	public ArrayList<ArrayList<Integer>> subsets(int[] S) {
 		Arrays.sort(S);
 		ArrayList<ArrayList<Integer>> subsets = new ArrayList<ArrayList<Integer>>();

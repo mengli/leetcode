@@ -9,7 +9,7 @@ package leetcode;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class BalancedBinaryTree {
 	public boolean isBalanced(TreeNode root) {
 		return determine(root) >= 0 ? true : false;
 	}

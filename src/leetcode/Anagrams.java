@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Note: All inputs will be in lower-case.
  */
 
-public class Solution {
+public class Anagrams {
 	public ArrayList<String> anagrams(String[] strs) {
 		ArrayList<String> ret = new ArrayList<String>();
 		ArrayList<String> ar = new ArrayList<String>();

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * 
  */
 
-public class Solution {
+public class Combinations {
 	public ArrayList<ArrayList<Integer>> combine(int n, int k) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> subset = new ArrayList<Integer>();

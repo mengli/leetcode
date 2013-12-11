@@ -12,7 +12,7 @@ package leetcode;
  * 
  */
 
-public class Solution {
+public class Candy {
 	public int candy(int[] ratings) {
 		int[] A = new int[ratings.length];
 		for (int i = 0; i < A.length; i++) {

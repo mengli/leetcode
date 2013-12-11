@@ -27,7 +27,7 @@ import java.util.Queue;
  * Definition for binary tree public class TreeNode { int val; TreeNode left;
  * TreeNode right; TreeNode(int x) { val = x; } }
  */
-public class Solution {
+public class BinaryTreeLevelOrderTraversalII {
 	public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
 		ArrayList<ArrayList<Integer>> levels = new ArrayList<ArrayList<Integer>>();
 		if (root == null)
