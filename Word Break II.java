@@ -12,19 +12,19 @@ public class Solution {
     public ArrayList<String> wordBreak(String s, Set<String> dict) {
     	Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
         for (String w : dict) {
-        	wordMap.put(w, true);
+            wordMap.put(w, true);
         }
         int len = s.length();
         boolean[] strMap = new boolean[len + 1];
         ArrayList<String> sols = new ArrayList<String>();
         strMap[0] = true;
         for (int i = 1; i <= len; i++) {
-        	for (int j = 0; j < i; j++) {
-        		String ww = s.substring(j, i);
-        		if (strMap[j] && wordMap.containsKey(ww)) {
-        			strMap[i] = true;
-        		}
+            for (int j = 0; j < i; j++) {
+                String ww = s.substring(j, i);
+        	if (strMap[j] && wordMap.containsKey(ww)) {
+        	    strMap[i] = true;
         	}
+            }
         }
         if (!strMap[len]) return sols;
         List<String> sb = new LinkedList<String>();
@@ -35,22 +35,21 @@ public class Solution {
     
     private void search(String s, Set<String> dict, int st, int len, boolean[] strMap, List<String> sb, ArrayList<String> sols) {
     	if (st >= len) {
-    		StringBuffer sbf = new StringBuffer();
-    		for (String ss : sb) {
-    			sbf.append(" ");
-    			sbf.append(ss);
-    		}
-    		sols.add(sbf.toString().trim());
+    	    StringBuffer sbf = new StringBuffer();
+    	    for (String ss : sb) {
+    	        sbf.append(" ");
+    		sbf.append(ss);
+    	    }
+    	    sols.add(sbf.toString().trim());
     	} else {
-    		for (int ll = st + 1; ll <= len; ll++) {
-    			String tmp = s.substring(st, ll);
-	    		if (strMap[st] && dict.contains(tmp)) {
-	    			sb.add(tmp);
-	    			int last = sb.size() - 1;
-	    			search(s, dict, ll, len, strMap, sb, sols);
-	    			sb.remove(last);
-	    		}
-    		}
+    	    for (int ll = st + 1; ll <= len; ll++) {
+    	    String tmp = s.substring(st, ll);
+	    if (strMap[st] && dict.contains(tmp)) {
+	    	sb.add(tmp);
+	    	int last = sb.size() - 1;
+	    	search(s, dict, ll, len, strMap, sb, sols);
+	    	sb.remove(last);
+	    }
     	}
-	}
+    }
 }
