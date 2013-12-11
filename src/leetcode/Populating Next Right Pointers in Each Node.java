@@ -1,4 +1,6 @@
-Given a binary tree
+package leetcode;
+
+/** Given a binary tree
 
     struct TreeLinkNode {
       TreeLinkNode *left;
@@ -26,6 +28,7 @@ After calling your function, the tree should look like:
       2 -> 3 -> NULL
      / \  / \
     4->5->6->7 -> NULL
+*/
 
 /**
  * Definition for binary tree with next pointer.
@@ -36,29 +39,29 @@ After calling your function, the tree should look like:
  * }
  */
 public class Solution {
-    public void connect(TreeLinkNode root) {
-    	TreeLinkNode currentBegin = root, prevBegin = null;
-	while (currentBegin != null) {
-	    TreeLinkNode curr = currentBegin;
-	    while (curr != null) {
-		if (prevBegin == null) {
-		    curr.next = null;
-		    curr = curr.next;
-		} else {
-		    curr.next = prevBegin.right;
-		    curr = curr.next;
-		    prevBegin = prevBegin.next;
-		    if (prevBegin != null) {
-			curr.next = prevBegin.left;
-			curr = curr.next;
-		    } else {
-			curr.next = null;
-			curr = null;
-		    }
+	public void connect(TreeLinkNode root) {
+		TreeLinkNode currentBegin = root, prevBegin = null;
+		while (currentBegin != null) {
+			TreeLinkNode curr = currentBegin;
+			while (curr != null) {
+				if (prevBegin == null) {
+					curr.next = null;
+					curr = curr.next;
+				} else {
+					curr.next = prevBegin.right;
+					curr = curr.next;
+					prevBegin = prevBegin.next;
+					if (prevBegin != null) {
+						curr.next = prevBegin.left;
+						curr = curr.next;
+					} else {
+						curr.next = null;
+						curr = null;
+					}
+				}
+			}
+			prevBegin = currentBegin;
+			currentBegin = currentBegin.left;
 		}
-	    }
-	    prevBegin = currentBegin;
-	    currentBegin = currentBegin.left;
 	}
-    }
 }

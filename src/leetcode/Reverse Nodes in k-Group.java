@@ -1,58 +1,55 @@
-Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+package leetcode;
 
-If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+/** Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 
-You may not alter the values in the nodes, only nodes itself may be changed.
+ If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
 
-Only constant memory is allowed.
+ You may not alter the values in the nodes, only nodes itself may be changed.
 
-For example,
-Given this linked list: 1->2->3->4->5
+ Only constant memory is allowed.
 
-For k = 2, you should return: 2->1->4->3->5
+ For example,
+ Given this linked list: 1->2->3->4->5
 
-For k = 3, you should return: 3->2->1->4->5
+ For k = 2, you should return: 2->1->4->3->5
+
+ For k = 3, you should return: 3->2->1->4->5
+ */
 
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode
+ * next; ListNode(int x) { val = x; next = null; } }
  */
 public class Solution {
-    public ListNode reverseKGroup(ListNode head, int k) {
-    	if (head == null) return null;
-	int t = 0;
-	ListNode nextHead = head;
-	while (nextHead != null && t < k - 1) {
-	    nextHead = nextHead.next;
-	    t++;
+	public ListNode reverseKGroup(ListNode head, int k) {
+		if (head == null)
+			return null;
+		int t = 0;
+		ListNode nextHead = head;
+		while (nextHead != null && t < k - 1) {
+			nextHead = nextHead.next;
+			t++;
+		}
+		if (nextHead == null || t < k - 1) {
+			return head;
+		} else {
+			ListNode nextPart = reverseKGroup(nextHead.next, k);
+			return reverseList(head, k, nextPart);
+		}
 	}
-	if (nextHead == null || t < k - 1) {
-	    return head;
-	} else {
-	    ListNode nextPart = reverseKGroup(nextHead.next, k);
-	    return reverseList(head, k, nextPart);
-	}
-    }
 
-    private ListNode reverseList(ListNode head, int k, ListNode nextPart) {
-	ListNode cur = head, prev = null, next = null;
-	for (int i = 0; i < k; i++) {
-	    next = cur.next;
-	    if (i != 0) {
-		cur.next = prev;
-	    } else {
-		cur.next = nextPart;
-	    }
-	    prev = cur;
-	    cur = next;
+	private ListNode reverseList(ListNode head, int k, ListNode nextPart) {
+		ListNode cur = head, prev = null, next = null;
+		for (int i = 0; i < k; i++) {
+			next = cur.next;
+			if (i != 0) {
+				cur.next = prev;
+			} else {
+				cur.next = nextPart;
+			}
+			prev = cur;
+			cur = next;
+		}
+		return prev;
 	}
-	return prev;
-    }
 }
