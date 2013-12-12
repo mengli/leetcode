@@ -1,12 +1,12 @@
 package leetcode;
 
 /**
- * Given a string s, partition s such that every substring of the partition is a
- * palindrome. Return the minimum cuts needed for a palindrome partitioning of
- * s. For example, given s = "aab", Return 1 since the palindrome partitioning
- * ["aa","b"] could be produced using 1 cut.
+ * Given a string s, partition s such that every substring of the partition is a palindrome. 
+ * Return the minimum cuts needed for a palindrome partitioning of s. 
  * 
- * D[i] = min(1+D[j+1], D[i]) i<=j<n s[i, j] is palindrome
+ * For example, given s = "aab", Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
+ * 
+ * D[i] = min(1 + D[j + 1], D[i]) i<=j<n s[i, j] is palindrome
  */
 
 public class PalindromePartitioningII {

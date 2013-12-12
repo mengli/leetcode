@@ -1,6 +1,8 @@
 package leetcode;
 
-/** Implement pow(x, n) */
+/** 
+ * Implement pow(x, n) 
+ */
 
 public class PowXN {
 	public double pow(double x, int n) {

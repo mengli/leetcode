@@ -1,16 +1,15 @@
 package leetcode;
 
-/** Reverse a linked list from position m to n. Do it in-place and in one-pass.
-
- For example:
- Given 1->2->3->4->5->NULL, m = 2 and n = 4,
-
- return 1->4->3->2->5->NULL. */
-
-/**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; next = null; } }
+/** 
+ * Reverse a linked list from position m to n. Do it in-place and in one-pass.
+ * 
+ * For example:
+ * 
+ * Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+ *
+ * return 1->4->3->2->5->NULL. 
  */
+
 public class ReverseLinkedListII {
 	public ListNode reverseBetween(ListNode head, int m, int n) {
 		if (head == null)

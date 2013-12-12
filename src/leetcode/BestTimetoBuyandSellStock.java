@@ -8,7 +8,6 @@ package leetcode;
  * and sell one share of the stock), design an algorithm to find the maximum
  * profit.
  */
-
 public class BestTimetoBuyandSellStock {
 	public int maxProfit(int[] prices) {
 		int lowest = 0;

@@ -6,11 +6,11 @@ package leetcode;
  * 
  * For example, S = "ADOBECODEBANC" T = "ABC" Minimum window is "BANC".
  * 
- * Note: If there is no such window in S that covers all characters in T, return
- * the emtpy string "".
+ * Note: 
  * 
- * If there are multiple such windows, you are guaranteed that there will always
- * be only one unique minimum window in S.
+ * If there is no such window in S that covers all characters in T, return the emtpy string "".
+ * 
+ * If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
  */
 
 public class MinimumWindowSubstring {

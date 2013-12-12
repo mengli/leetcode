@@ -9,8 +9,14 @@ package leetcode;
  * 
  * For example, Given board =
  * 
- * [ ["ABCE"], ["SFCS"], ["ADEE"] ] word = "ABCCED", -> returns true, word =
- * "SEE", -> returns true, word = "ABCB", -> returns false.
+ * [ ["ABCE"], 
+ *   ["SFCS"], 
+ *   ["ADEE"] 
+ * ] 
+ * 
+ * word = "ABCCED", -> returns true, 
+ * word = "SEE", -> returns true, 
+ * word = "ABCB", -> returns false.
  */
 
 public class WordSearch {
@@ -39,7 +45,6 @@ public class WordSearch {
 
 		int height = board.length;
 		int width = board[0].length;
-		boolean ret = false;
 		map[x][y] = true;
 
 		if (x > 0 && !map[x - 1][y]

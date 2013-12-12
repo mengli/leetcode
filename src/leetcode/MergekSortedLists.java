@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-/** Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. */
-
-/**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; next = null; } }
+/** 
+ * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. 
+ *
  */
+
 public class MergekSortedLists {
 	public ListNode mergeKLists(ArrayList<ListNode> lists) {
 		if (lists == null || lists.isEmpty())

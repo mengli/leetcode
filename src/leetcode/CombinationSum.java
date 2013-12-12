@@ -11,11 +11,14 @@ import java.util.Arrays;
  * 
  * Note:
  * 
- * All numbers (including target) will be positive integers. Elements in a
- * combination (a1, a2, ? , ak) must be in non-descending order. (ie, a1 ? a2 ?
- * ? ? ak). The solution set must not contain duplicate combinations. For
- * example, given candidate set 2,3,6,7 and target 7, A solution set is: [7] [2,
- * 2, 3]
+ * All numbers (including target) will be positive integers. 
+ * 
+ * Elements in a combination (a1, a2, ... , ak) must be in non-descending order. (ie, a1 <= a2 <= ... <= ak).
+ * 
+ * The solution set must not contain duplicate combinations. 
+ * For example, given candidate set 2,3,6,7 and target 7, A solution set is: 
+ * [7]
+ * [2, 2, 3]
  */
 
 public class CombinationSum {

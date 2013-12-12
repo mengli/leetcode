@@ -6,7 +6,9 @@ package leetcode;
  * 
  * You have the following 3 operations permitted on a word:
  * 
- * a) Insert a character b) Delete a character c) Replace a character
+ * a) Insert a character 
+ * b) Delete a character 
+ * c) Replace a character
  */
 
 public class EditDistance {

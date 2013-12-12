@@ -13,8 +13,7 @@ import java.util.Set;
  * 
  * Return all such possible sentences.
  * 
- * For example, given s = "catsanddog", dict = ["cat", "cats", "and", "sand",
- * "dog"].
+ * For example, given s = "catsanddog", dict = ["cat", "cats", "and", "sand", "dog"].
  * 
  * A solution is ["cats and dog", "cat sand dog"].
  */

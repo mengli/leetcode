@@ -7,7 +7,12 @@ package leetcode;
  * 
  * For example: Given the below binary tree,
  * 
- * 1 / \ 2 3 Return 6.
+ *   1 
+ *  / \ 
+ * 2   3
+ * 
+ * Return 6.
+ * 
  */
 
 public class BinaryTreeMaximumPathSum {
