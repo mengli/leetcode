@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and set.
+ * Design and implement a data structure for Least Recently Used (LRU) cache. It
+ * should support the following operations: get and set.
  * 
- * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
- * set(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
- *
+ * get(key) - Get the value (will always be positive) of the key if the key
+ * exists in the cache, otherwise return -1. set(key, value) - Set or insert the
+ * value if the key is not already present. When the cache reached its capacity,
+ * it should invalidate the least recently used item before inserting a new
+ * item.
+ * 
  */
 
 public class LRUCache {
@@ -19,7 +23,7 @@ public class LRUCache {
 		private V value;
 		private CacheItem<K, V> prev;
 		private CacheItem<K, V> next;
-		
+
 		public CacheItem<K, V> getPrev() {
 			return prev;
 		}
@@ -54,7 +58,8 @@ public class LRUCache {
 		}
 
 		public void delete(CacheItem<K, V> node) {
-			if (head.next == null) return;
+			if (head.next == null)
+				return;
 			if (node == head.next) {
 				deleteHead();
 			} else if (node == tail) {
@@ -66,7 +71,7 @@ public class LRUCache {
 				node.prev = null;
 			}
 		}
-		
+
 		public CacheItem<K, V> deleteTail() {
 			if (head.next == null)
 				return null;
@@ -77,7 +82,7 @@ public class LRUCache {
 			ret.next = null;
 			return ret;
 		}
-		
+
 		public CacheItem<K, V> deleteHead() {
 			if (head.next == null)
 				return null;
@@ -106,7 +111,8 @@ public class LRUCache {
 
 	public int get(int key) {
 		CacheItem<Integer, Integer> itm = cacheMap.get(key);
-		if (itm == null) return -1;
+		if (itm == null)
+			return -1;
 		cacheList.delete(itm);
 		cacheList.insertTail(itm);
 		return itm.value.intValue();
@@ -122,21 +128,22 @@ public class LRUCache {
 			addItem(key, value);
 		}
 	}
-	
+
 	private void addItem(int key, int value) {
-		CacheItem<Integer, Integer> newCacheItem = new CacheItem<Integer, Integer>(key, value);
+		CacheItem<Integer, Integer> newCacheItem = new CacheItem<Integer, Integer>(
+				key, value);
 		cacheList.insertTail(newCacheItem);
 		cacheMap.put(key, newCacheItem);
 		cacheSize++;
 	}
-	
+
 	private void updateItem(int key, int value) {
 		CacheItem<Integer, Integer> exitedKey = cacheMap.get(key);
 		exitedKey.value = value;
 		cacheList.delete(exitedKey);
 		cacheList.insertTail(exitedKey);
 	}
-	
+
 	private boolean removeLeastUsed() {
 		CacheItem<Integer, Integer> removedKey = cacheList.deleteHead();
 		cacheMap.remove(removedKey.key);
