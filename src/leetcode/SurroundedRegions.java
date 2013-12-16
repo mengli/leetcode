@@ -24,16 +24,6 @@ import java.util.Queue;
 
 public class SurroundedRegions {
 
-	public class Point {
-		public int x;
-		public int y;
-
-		public Point(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
-
 	public void solve(char[][] board) {
 		int height = board.length;
 		int width = 0;
