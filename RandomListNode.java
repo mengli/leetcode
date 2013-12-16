@@ -1,4 +1,4 @@
-package leetcode;
+
 
 class RandomListNode {
 	int label;

@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /**
  * Given two words word1 and word2, find the minimum number of steps required to

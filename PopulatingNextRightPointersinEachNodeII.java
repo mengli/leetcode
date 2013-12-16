@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /** 
  * Populating Next Right Pointers in Each Node IIOct 28 '12

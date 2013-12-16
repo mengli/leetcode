@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /**
  * Implement int sqrt(int x).

@@ -1,4 +1,4 @@
-package leetcode2;
+
 
 /**
  * Given an array of integers, find two numbers such that they add up to a
@@ -12,7 +12,7 @@ package leetcode2;
  * Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2
  */
 
-public class TwoSum {
+public class TwoSumV2 {
 	private void quickSort(int[] numbers, int[] indexs, int start, int end) {
 		if (start < end) {
 			int p = partition(numbers, indexs, start, end);

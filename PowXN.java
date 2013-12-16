@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /** 
  * Implement pow(x, n) 

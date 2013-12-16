@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /**
  * Given a sorted array, remove the duplicates in place such that each element

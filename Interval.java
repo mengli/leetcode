@@ -1,4 +1,4 @@
-package leetcode;
+
 
 public class Interval {
 	int start;

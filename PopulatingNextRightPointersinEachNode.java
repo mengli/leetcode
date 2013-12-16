@@ -1,4 +1,4 @@
-package leetcode;
+
 
 /** 
  * Given a binary tree
