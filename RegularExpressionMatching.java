@@ -30,14 +30,9 @@ public class RegularExpressionMatching {
 		if (j == lp) {
 			return i == ls;
 		}
-		// next char is not '*': must match current character
 		if ((j < lp - 1 && p.charAt(j + 1) != '*') || j == lp - 1) {
-			if (p.charAt(j) == '*') {
-				return false;
-			}
 			return (i < ls && s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && isMatch(s, i + 1, p, j + 1);
 		}
-		// next char is '*'
 		while ((i < ls && s.charAt(i) == p.charAt(j)) || (p.charAt(j) == '.' && i < ls)) {
 			if (isMatch(s, i, p, j + 2))
 				return true;
