@@ -44,9 +44,4 @@ public class ThreeSumClosest {
 		}
 		return ret;
 	}
-	
-	public static void main(String[] args) {
-		int[] num = new int[] {0,2,1,-3};
-		System.out.print(new ThreeSumClosest().threeSumClosest(num, 1));
-	}
 }
