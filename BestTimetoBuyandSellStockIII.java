@@ -13,28 +13,37 @@
 
 public class BestTimetoBuyandSellStockIII {
 	public int maxProfit(int[] prices) {
-		if (prices.length < 2)
-			return 0;
-		int max = 0;
-		for (int i = 0; i < prices.length; i++) {
-			max = Math.max(max, maxProfitSingle(prices, 0, i)
-					+ maxProfitSingle(prices, i, prices.length - 1));
+		int length = prices.length;
+		if (length == 0) return 0;
+		int profit = 0;
+		int lowest = prices[0];
+		int[] left = new int[length];
+		int[] right = new int[length];
+		for (int i = 1; i < length; i++) {
+			if (prices[i] < lowest) {
+				lowest = prices[i];
+			} else if (prices[i] - lowest > profit) {
+				profit = prices[i] - lowest;
+			}
+			left[i] = profit;
 		}
-		return max;
-	}
-
-	public int maxProfitSingle(int[] prices, int start, int end) {
-		int lowest = 0;
-		int maxProfit = 0;
-		if (end - start + 1 > 0) {
-			lowest = prices[start];
-			for (int i = start; i <= end; i++) {
-				if (lowest > prices[i]) {
-					lowest = prices[i];
-				}
-				maxProfit = Math.max(maxProfit, prices[i] - lowest);
+		profit = 0;
+		int topest = prices[length - 1];
+		for (int j = length - 2; j >= 0; j--) {
+			if (prices[j] > topest) {
+				topest = prices[j];
+			} else if (topest - prices[j] > profit) {
+				profit = topest - prices[j];
+			}
+			right[length - 1 - j] = profit;
+		}
+		profit = 0;
+		for (int k = 0; k < length; k++) {
+			int p = left[k] + right[length - 1 - k];
+			if (p > profit) {
+				profit = p;
 			}
 		}
-		return maxProfit;
+		return profit;
 	}
 }
