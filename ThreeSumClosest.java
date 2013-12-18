@@ -18,7 +18,7 @@ public class ThreeSumClosest {
 		for (int i = 0; i < length - 2; i++) {
 			int j = i + 1;
 			int k = length - 1;
-			while(j < k) {
+			while (j < k) {
 				if (j > i + 1 && num[j] == num[j - 1]) {
 					j++;
 					continue;
@@ -34,7 +34,8 @@ public class ThreeSumClosest {
 					dis = d;
 					ret = sum;
 				}
-				if (minus == 0) return target;
+				if (minus == 0)
+					return target;
 				if (minus < 0) {
 					j++;
 				} else {
