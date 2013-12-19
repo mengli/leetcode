@@ -14,39 +14,32 @@ import java.util.ArrayList;
 
 public class PalindromePartitioning {
 	public ArrayList<ArrayList<String>> partition(String s) {
-		ArrayList<ArrayList<String>> results = new ArrayList<ArrayList<String>>();
-		ArrayList<String> pt = new ArrayList<String>();
-		findPartition(s, 0, pt, results);
-		return results;
+		ArrayList<ArrayList<String>> ret = new ArrayList<ArrayList<String>>();
+		ArrayList<String> r = new ArrayList<String>();
+		int length = s.length();
+		boolean[][] map = new boolean[length][length];
+		findPartition(s, 0, ret, r, map);
+		return ret;
 	}
 
-	public void findPartition(String s, int begin, ArrayList<String> pt,
-			ArrayList<ArrayList<String>> results) {
-		if (begin >= s.length()) {
-			ArrayList<String> copy = new ArrayList<String>();
-			for (int j = 0; j < pt.size(); j++) {
-				copy.add(pt.get(j));
+	private void findPartition(String s, int start,
+			ArrayList<ArrayList<String>> ret, ArrayList<String> r,
+			boolean[][] map) {
+		int length = s.length();
+		if (start == length && r.size() != 0) {
+			ArrayList<String> clone = new ArrayList<String>(r);
+			ret.add(clone);
+		} else {
+			for (int j = start; j < length; j++) {
+				if (start == j
+						|| (j - start > 1 && s.charAt(start) == s.charAt(j) && map[start + 1][j - 1])
+						|| (j - start == 1 && s.charAt(start) == s.charAt(j))) {
+					map[start][j] = true;
+					r.add(s.substring(start, j + 1));
+					findPartition(s, j + 1, ret, r, map);
+					r.remove(r.size() - 1);
+				}
 			}
-			results.add(copy);
 		}
-
-		for (int i = begin; i < s.length(); i++) {
-			if (isPalindrome(s, begin, i)) {
-				pt.add(s.substring(begin, i + 1));
-				findPartition(s, i + 1, pt, results);
-				pt.remove(pt.size() - 1);
-			}
-		}
-	}
-
-	boolean isPalindrome(String s, int start, int end) {
-		while (start < end) {
-			if (s.charAt(start) != s.charAt(end)) {
-				return false;
-			}
-			start++;
-			end--;
-		}
-		return true;
 	}
 }
