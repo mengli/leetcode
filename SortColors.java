@@ -23,20 +23,24 @@
 
 public class SortColors {
 	public void sortColors(int[] A) {
-		int begin = -1;
-		int end = A.length;
-		for (int i = 0; i < end; i++) {
+		int length = A.length;
+		int left = -1;
+		int right = length;
+		int i = 0;
+		while (i < right) {
 			if (A[i] == 0) {
-				begin++;
-				int tmp = A[begin];
-				A[begin] = A[i];
-				A[i] = tmp;
+				swap(A, ++left, i++);
 			} else if (A[i] == 2) {
-				end--;
-				int tmp = A[end];
-				A[end] = A[i];
-				A[i--] = tmp;
+				swap(A, i, --right);
+			} else {
+				i++;
 			}
 		}
+	}
+
+	private void swap(int[] a, int i, int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
 	}
 }
