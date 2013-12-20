@@ -27,25 +27,19 @@
 
 public class FlattenBinaryTreetoLinkedList {
 	public void flatten(TreeNode root) {
-		if (root == null || (root.left == null && root.right == null))
-			return;
-		if (root.left != null) {
-			TreeNode tmp = root.right;
-			root.right = root.left;
-			root.left = null;
-			TreeNode rightMost = findRightMostNode(root.right);
-			rightMost.right = tmp;
-			flatten(root.right);
-		} else if (root.right != null) {
-			flatten(root.right);
-		}
-	}
-
-	public TreeNode findRightMostNode(TreeNode root) {
-		if (root.right != null) {
-			return findRightMostNode(root.right);
-		} else {
-			return root;
-		}
-	}
+        if (root == null) return;
+        if (root.left != null) {
+            TreeNode rightMost = findRightMost(root.left);
+            TreeNode rightChild = root.right;
+            root.right = root.left;
+            root.left = null;
+            rightMost.right = rightChild;
+        }
+        flatten(root.right);
+    }
+    
+    private TreeNode findRightMost(TreeNode root) {
+        if (root == null || root.right == null) return root;
+        return findRightMost(root.right);
+    }
 }
