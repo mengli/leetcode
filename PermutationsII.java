@@ -28,15 +28,9 @@ public class PermutationsII {
 		}
 		for (int end = begin; end < num.length; end++) {
 			if (isSwap(num, begin, end)) {
-				int tmp = num[end];
-				num[end] = num[begin];
-				num[begin] = tmp;
-
+				swap(num, begin, end);
 				permuteUnique(num, begin + 1, result);
-
-				tmp = num[end];
-				num[end] = num[begin];
-				num[begin] = tmp;
+				swap(num, begin, end);
 			}
 		}
 	}
@@ -48,5 +42,11 @@ public class PermutationsII {
 			}
 		}
 		return true;
+	}
+	
+	private void swap(int[] a, int i, int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
 	}
 }
