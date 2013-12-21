@@ -16,22 +16,22 @@ public class LongestValidParentheses {
 			return 0;
 		int left = 0;
 		Stack<Integer> indexs = new Stack<Integer>();
-		int[] record = new int[length];
+		boolean[] record = new boolean[length];
 		for (int i = 0; i < length; i++) {
 			if (s.charAt(i) == '(') {
 				left++;
 				indexs.push(i);
 			} else if (left > 0) {
 				int idx = indexs.pop();
-				record[idx] = 1;
-				record[i] = 1;
+				record[idx] = true;
+				record[i] = true;
 				left--;
 			}
 		}
 		int ret = 0;
 		int current = 0;
 		for (int k = 0; k < length; k++) {
-			if (record[k] == 1) {
+			if (record[k]) {
 				current++;
 			} else {
 				ret = current > ret ? current : ret;
