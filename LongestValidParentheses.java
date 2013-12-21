@@ -1,5 +1,3 @@
-
-
 import java.util.Stack;
 
 /**
@@ -13,26 +11,33 @@ import java.util.Stack;
 
 public class LongestValidParentheses {
 	public int longestValidParentheses(String s) {
-		int maxLen = 0, last = -1;
-		Stack<Integer> lefts = new Stack<Integer>();
-		for (int i = 0; i < s.length(); ++i) {
+		int length = s.length();
+		if (length == 0)
+			return 0;
+		int left = 0;
+		Stack<Integer> indexs = new Stack<Integer>();
+		int[] record = new int[length];
+		for (int i = 0; i < length; i++) {
 			if (s.charAt(i) == '(') {
-				lefts.push(i);
-			} else {
-				if (lefts.isEmpty()) {
-					// no matching left
-					last = i;
-				} else {
-					// find a matching pair
-					lefts.pop();
-					if (lefts.isEmpty()) {
-						maxLen = Math.max(maxLen, i - last);
-					} else {
-						maxLen = Math.max(maxLen, i - lefts.peek());
-					}
-				}
+				left++;
+				indexs.push(i);
+			} else if (left > 0) {
+				int idx = indexs.pop();
+				record[idx] = 1;
+				record[i] = 1;
+				left--;
 			}
 		}
-		return maxLen;
+		int ret = 0;
+		int current = 0;
+		for (int k = 0; k < length; k++) {
+			if (record[k] == 1) {
+				current++;
+			} else {
+				ret = current > ret ? current : ret;
+				current = 0;
+			}
+		}
+		return ret > current ? ret : current;
 	}
 }
