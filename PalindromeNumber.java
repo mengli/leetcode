@@ -20,16 +20,16 @@ public class PalindromeNumber {
 		if (x < 0)
 			return false;
 		int k = 1;
-		int t = x;
-		while ((t = t / 10) != 0)
+		while (x / k >= 10) {
 			k *= 10;
+		}
 		while (x >= 10) {
-			int d1 = x / k;
-			int d2 = x - x / 10 * 10;
-			if (d1 != d2)
+			int left = x / k;
+			int right = x - x / 10 * 10;
+			if (left != right)
 				return false;
-			x = x / 10 - d1 * (k - 1);
-			k -= 2;
+			x = (x - x / k * k) / 10;
+			k /= 100;
 		}
 		return true;
 	}
