@@ -16,22 +16,18 @@
 
 public class RemoveNthNodeFromEndofList {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
-		if (head == null)
-			return head;
-		ListNode root = new ListNode(0);
-		root.next = head;
-		ListNode p1 = root;
-		int i = 0;
-		while (i < n && p1.next != null) {
-			i++;
-			p1 = p1.next;
-		}
-		ListNode p2 = root;
-		while (p1.next != null) {
-			p1 = p1.next;
-			p2 = p2.next;
-		}
-		p2.next = p2.next.next;
-		return root.next;
-	}
+        ListNode root = new ListNode(0);
+        ListNode fast = root;
+        ListNode slow = root;
+        root.next = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return root.next;
+    }
 }
