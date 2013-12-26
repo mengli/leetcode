@@ -25,10 +25,10 @@ public class EditDistance {
 		for (int i = 0; i < word1.length(); i++) {
 			for (int j = 0; j < word2.length(); j++) {
 				if (word1.charAt(i) == word2.charAt(j)) {
-					arr[j][i] = arr[j - 1][i - 1];
+					arr[j + 1][i + 1] = arr[j][i];
 				} else {
-					int dis = Math.min(arr[j - 1][i], arr[j][i - 1]);
-					arr[j][i] = Math.min(arr[j - 1][i - 1], dis) + 1;
+					int dis = Math.min(arr[j][i + 1], arr[j + 1][i]);
+					arr[j + 1][i + 1] = Math.min(arr[j][i], dis) + 1;
 				}
 			}
 		}

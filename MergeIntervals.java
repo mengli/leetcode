@@ -1,6 +1,6 @@
-
-
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /** 
  * Given a collection of intervals, merge all overlapping intervals.
@@ -11,42 +11,33 @@ import java.util.ArrayList;
  */
 
 public class MergeIntervals {
+	public class IntervalCmp implements Comparator<Interval> {
+		@Override
+		public int compare(Interval i1, Interval i2) {
+			if (i1.start < i2.start) return -1;
+			if (i1.start == i2.start && i1.end <= i2.end) return -1;
+			return 1;
+		}
+	}
+	
 	public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
-		int size = intervals.size();
-		int count;
-		do {
-			count = 0;
-			for (int i = 0; i < size; i++) {
-				Interval interval1 = intervals.get(i);
-				if (interval1 != null) {
-					for (int j = 0; j < size; j++) {
-						Interval interval2 = intervals.get(j);
-						if (i != j && interval2 != null
-								&& check(interval1, interval2)) {
-							interval1 = merge(interval1, interval2);
-							intervals.set(i, interval1);
-							intervals.set(j, null);
-							count++;
-						}
-					}
-				}
-			}
-		} while (count != 0);
 		ArrayList<Interval> ret = new ArrayList<Interval>();
-		for (Interval item : intervals) {
-			if (item != null) {
-				ret.add(item);
+		if (intervals.size() == 0) return ret;
+		Interval[] arr = new Interval[intervals.size()];
+		intervals.toArray(arr);
+		Arrays.sort(arr, new IntervalCmp());
+		int start = arr[0].start;
+		int end = arr[0].end;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].start <= end) {
+				end = Math.max(end, arr[i].end);
+			} else {
+				ret.add(new Interval(start, end));
+				start = arr[i].start;
+				end = arr[i].end;
 			}
 		}
+		ret.add(new Interval(start, end));
 		return ret;
-	}
-
-	private Interval merge(Interval interval1, Interval interval2) {
-		return new Interval(Math.min(interval1.start, interval2.start),
-				Math.max(interval1.end, interval2.end));
-	}
-
-	private boolean check(Interval interval1, Interval interval2) {
-		return !(interval1.end < interval2.start || interval1.start > interval2.end);
 	}
 }
