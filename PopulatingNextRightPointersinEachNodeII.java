@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 /** 
@@ -26,40 +29,30 @@
 	
 public class PopulatingNextRightPointersinEachNodeII {
 	public void connect(TreeLinkNode root) {
-		TreeLinkNode currentBegin = root, prevBegin = null;
-		while (currentBegin != null) {
-			TreeLinkNode curr = currentBegin;
-			while (curr != null) {
-				TreeLinkNode next = null;
-				while (prevBegin != null) {
-					if (prevBegin.left != null && prevBegin.left != curr) {
-						next = prevBegin.left;
-						break;
-					} else if (prevBegin.right != null
-							&& prevBegin.right != curr) {
-						next = prevBegin.right;
-						prevBegin = prevBegin.next;
-						break;
-					} else {
-						prevBegin = prevBegin.next;
-					}
+		if (root == null)
+			return;
+		TreeLinkNode curLevel = root, cur = root;
+		curLevel.next = null;
+		List<TreeLinkNode> nextLevelNodes = new ArrayList<TreeLinkNode>();
+		while (true) {
+			while (cur != null) {
+				if (cur.left != null) {
+					nextLevelNodes.add(cur.left);
 				}
-				curr.next = next;
-				curr = curr.next;
+				if (cur.right != null) {
+					nextLevelNodes.add(cur.right);
+				}
+				cur = cur.next;
 			}
-			prevBegin = currentBegin;
-			currentBegin = null;
-			TreeLinkNode node = prevBegin;
-			while (node != null) {
-				if (node.left != null) {
-					currentBegin = node.left;
-					break;
-				} else if (node.right != null) {
-					currentBegin = node.right;
-					break;
-				} else {
-					node = node.next;
-				}
+			for (int i = 0; i < nextLevelNodes.size() - 1; i++) {
+				nextLevelNodes.get(i).next = nextLevelNodes.get(i + 1);
+			}
+			if (nextLevelNodes.size() > 0) {
+				curLevel = nextLevelNodes.get(0);
+				cur = curLevel;
+				nextLevelNodes.clear();
+			} else {
+				break;
 			}
 		}
 	}

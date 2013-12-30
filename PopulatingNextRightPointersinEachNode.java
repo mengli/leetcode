@@ -34,28 +34,27 @@
 
 public class PopulatingNextRightPointersinEachNode {
 	public void connect(TreeLinkNode root) {
-		TreeLinkNode currentBegin = root, prevBegin = null;
-		while (currentBegin != null) {
-			TreeLinkNode curr = currentBegin;
-			while (curr != null) {
-				if (prevBegin == null) {
-					curr.next = null;
-					curr = curr.next;
-				} else {
-					curr.next = prevBegin.right;
-					curr = curr.next;
-					prevBegin = prevBegin.next;
-					if (prevBegin != null) {
-						curr.next = prevBegin.left;
-						curr = curr.next;
-					} else {
-						curr.next = null;
-						curr = null;
+		if (root == null)
+			return;
+		TreeLinkNode curLevel = root;
+		TreeLinkNode cur = root;
+		curLevel.next = null;
+		while (true) {
+			while (cur != null) {
+				if (cur.left != null) {
+					cur.left.next = cur.right;
+					if (cur.next != null) {
+						cur.right.next = cur.next.left;
 					}
 				}
+				cur = cur.next;
 			}
-			prevBegin = currentBegin;
-			currentBegin = currentBegin.left;
+			if (curLevel.left != null) {
+				curLevel = curLevel.left;
+				cur = curLevel;
+			} else {
+				break;
+			}
 		}
 	}
 }
