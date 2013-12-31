@@ -1,5 +1,3 @@
-
-
 /**
  * Given two words word1 and word2, find the minimum number of steps required to
  * convert word1 to word2. (each operation is counted as 1 step.)
@@ -17,10 +15,10 @@ public class EditDistance {
 			return word1.length() == 0 ? word2.length() : word1.length();
 		int[][] arr = new int[word2.length() + 1][word1.length() + 1];
 		for (int i = 0; i <= word1.length(); i++) {
-			arr[0][i] = 0;
+			arr[0][i] = i;
 		}
 		for (int j = 0; j <= word2.length(); j++) {
-			arr[j][0] = 0;
+			arr[j][0] = j;
 		}
 		for (int i = 0; i < word1.length(); i++) {
 			for (int j = 0; j < word2.length(); j++) {
@@ -33,5 +31,9 @@ public class EditDistance {
 			}
 		}
 		return arr[word2.length()][word1.length()];
+	}
+	
+	public static void main (String[] args) {
+		System.out.println(new EditDistance().minDistance("ab", "bc"));
 	}
 }
