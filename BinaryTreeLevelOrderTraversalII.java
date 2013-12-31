@@ -26,37 +26,41 @@ import java.util.Queue;
 
 public class BinaryTreeLevelOrderTraversalII {
 	public ArrayList<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
-		ArrayList<ArrayList<Integer>> levels = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
 		if (root == null)
-			return levels;
-		int curr = 1;
-		int next = 0;
-		Queue<TreeNode> q = new LinkedList<TreeNode>();
+			return ret;
 		ArrayList<Integer> level = new ArrayList<Integer>();
-		q.add(root);
-		while (!q.isEmpty()) {
-			TreeNode n = q.poll();
-			curr--;
-			level.add(n.val);
-			if (n.left != null) {
-				q.add(n.left);
-				next++;
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(root);
+		int currentLevel = 1;
+		int nextLevel = 0;
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.remove();
+			level.add(node.val);
+			currentLevel--;
+			if (node.left != null) {
+				queue.add(node.left);
+				nextLevel++;
 			}
-			if (n.right != null) {
-				q.add(n.right);
-				next++;
+			if (node.right != null) {
+				queue.add(node.right);
+				nextLevel++;
 			}
-			if (curr == 0) {
-				levels.add(level);
+			if (currentLevel == 0) {
+				ret.add(level);
 				level = new ArrayList<Integer>();
-				curr = next;
-				next = 0;
+				currentLevel = nextLevel;
+				nextLevel = 0;
 			}
 		}
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		for (int i = levels.size() - 1; i >= 0; i--) {
-			result.add(levels.get(i));
+		int i = 0, j = ret.size() - 1;
+		while (i < j) {
+			ArrayList<Integer> tmp = ret.get(i);
+			ret.set(i, ret.get(j));
+			ret.set(j, tmp);
+			i++;
+			j--;
 		}
-		return result;
+		return ret;
 	}
 }
