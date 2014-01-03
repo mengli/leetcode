@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,23 +16,21 @@ import java.util.Arrays;
 
 public class SubsetsII {
 	public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] num) {
+		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> lastLevel = null;
+		ret.add(new ArrayList<Integer>());
 		Arrays.sort(num);
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> path = new ArrayList<Integer>();
-		subsets(num, 0, path, result);
-		return result;
-	}
-
-	private void subsets(int[] num, int begin, ArrayList<Integer> path,
-			ArrayList<ArrayList<Integer>> result) {
-		result.add(new ArrayList<Integer>(path));
-		for (int i = begin; i < num.length; i++) {
-			if (i > begin && num[i - 1] == num[i]) {
-				continue;
+		for (int i = 0; i < num.length; i++) {
+			ArrayList<ArrayList<Integer>> tmp = new ArrayList<ArrayList<Integer>>();
+			ArrayList<ArrayList<Integer>> prev = i == 0 || num[i] != num[i - 1] ? ret : lastLevel;
+			for (ArrayList<Integer> s : prev) {
+				ArrayList<Integer> newSet = new ArrayList<Integer>(s);
+				newSet.add(num[i]);
+				tmp.add(newSet);
 			}
-			path.add(num[i]);
-			subsets(num, i + 1, path, result);
-			path.remove(path.size() - 1);
+			ret.addAll(tmp);
+			lastLevel = tmp;
 		}
+		return ret;
 	}
 }
