@@ -18,16 +18,11 @@ public class ValidPalindrome {
 	public boolean isPalindrome(String s) {
 		s = s.toUpperCase();
 		int i = 0, j = s.length() - 1;
-		while (true) {
-			while (i < s.length()
-					&& !(s.charAt(i) >= 'A' && s.charAt(i) <= 'Z')
-					&& !(s.charAt(i) >= '0' && s.charAt(i) <= '9'))
+		while (i < j) {
+			if (!isAlphabet(s.charAt(i))) {
 				i++;
-			while (j >= 0 && !(s.charAt(j) >= 'A' && s.charAt(j) <= 'Z')
-					&& !(s.charAt(j) >= '0' && s.charAt(j) <= '9'))
+			} else if(!isAlphabet(s.charAt(j))) {
 				j--;
-			if (i >= j) {
-				return true;
 			} else if (s.charAt(i) != s.charAt(j)) {
 				return false;
 			} else {
@@ -35,5 +30,10 @@ public class ValidPalindrome {
 				j--;
 			}
 		}
+		return true;
+	}
+	
+	private boolean isAlphabet(char c) {
+		return (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
 	}
 }
