@@ -34,38 +34,37 @@
 
 public class StringtoIntegerAtoi {
 	public int atoi(String str) {
-		int len = str.length();
-		if (len == 0)
+		str = str.trim();
+		int length = str.length();
+		if (length == 0)
 			return 0;
-		int ret = 0;
-		boolean signal = true;
 		int i = 0;
-		while (i < len && str.charAt(i) == ' ') {
+		boolean minus = false;
+		if (str.charAt(0) == '-') {
+			minus = true;
+			i++;
+		} else if (str.charAt(0) == '+') {
 			i++;
 		}
-		if (i < len && str.charAt(i) == '-') {
-			signal = false;
-			i++;
-		} else if (i < len && str.charAt(i) == '+') {
-			i++;
-		} else if (str.charAt(i) < '0' || str.charAt(i) > '9')
-			return 0;
-		int count = 0;
-		while (i < len && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
-			if (signal) {
-				if (count == 10
-						|| (count == 9 && ret == 214748364 && str.charAt(i) >= '7'))
-					return Integer.MAX_VALUE;
-				ret = ret * 10 + (str.charAt(i) - '0');
+		long MIN_VALUE = Integer.MIN_VALUE;
+		long MAX_VALUE = Integer.MAX_VALUE;
+		long num = 0;
+		boolean finished = false;
+		for (; i < length && !finished; i++) {
+			char c = str.charAt(i);
+			if (c >= '0' && c <= '9') {
+				num *= 10;
+				num += c - '0';
 			} else {
-				if (count == 10
-						|| (count == 9 && ret == -214748364 && str.charAt(i) >= '8'))
-					return Integer.MIN_VALUE;
-				ret = ret * 10 - (str.charAt(i) - '0');
+				finished = true;
 			}
-			i++;
-			count++;
+			if (minus && 0 - num < MIN_VALUE) {
+				return Integer.MIN_VALUE;
+			}
+			if (!minus && num > MAX_VALUE) {
+				return Integer.MAX_VALUE;
+			}
 		}
-		return ret;
+		return minus ? new Long(0 - num).intValue() : new Long(num).intValue();
 	}
 }
