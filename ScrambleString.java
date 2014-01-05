@@ -54,18 +54,20 @@ public class ScrambleString {
 		}
 
 		for (int k = 0; k < 26; k++) {
-			if (A[k] != 0) return false;
+			if (A[k] != 0)
+				return false;
 		}
 
 		for (int i = 1; i < s1.length(); i++) {
-			boolean result = isScramble(s1.substring(0, i), s2.substring(0, i)) && isScramble(s1.substring(i), s2.substring(i));
-			result = result || (isScramble(s1.substring(0, i), s2.substring(s2.length() - i, s2.length())) && isScramble(s1.substring(i), s2.substring(0, s2.length() - i)));
-			if (result) return true;
+			boolean result = isScramble(s1.substring(0, i), s2.substring(0, i))
+					&& isScramble(s1.substring(i), s2.substring(i));
+			result = result
+					|| (isScramble(s1.substring(0, i),
+							s2.substring(s2.length() - i, s2.length())) && isScramble(
+							s1.substring(i), s2.substring(0, s2.length() - i)));
+			if (result)
+				return true;
 		}
 		return false;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(new ScrambleString().isScramble("aab", "bab"));
 	}
 }
