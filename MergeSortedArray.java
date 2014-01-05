@@ -1,5 +1,3 @@
-
-
 /**
  * Given two sorted integer arrays A and B, merge B into A as one sorted array.
  * 
@@ -11,18 +9,13 @@
 
 public class MergeSortedArray {
 	public void merge(int A[], int m, int B[], int n) {
-		int end = m + n - 1;
-		int a = m - 1;
-		int b = n - 1;
-		while (a >= 0 && b >= 0) {
-			if (A[a] >= B[b]) {
-				A[end--] = A[a--];
-			} else {
-				A[end--] = B[b--];
-			}
+		int i = m - 1, j = n - 1;
+		int k = m + n - 1;
+		while (i >= 0 && j >= 0) {
+			A[k--] = A[i] >= B[j] ? A[i--] : B[j--];
 		}
-		while (b >= 0) {
-			A[end--] = B[b--];
+		while (j >= 0) {
+			A[k--] = B[j--];
 		}
 	}
 }
