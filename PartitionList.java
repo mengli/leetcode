@@ -1,5 +1,3 @@
-
-
 /** 
  * Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
  *
@@ -12,36 +10,28 @@
 
 public class PartitionList {
 	public ListNode partition(ListNode head, int x) {
-		ListNode low = null;
-		ListNode high = null;
-		ListNode cl = null;
-		ListNode ch = null;
-		ListNode cur = head;
-		while (cur != null) {
-			if (cur.val < x) {
-				ListNode newNode = new ListNode(cur.val);
-				if (low != null) {
-					cl.next = newNode;
-				} else {
-					low = newNode;
-				}
-				cl = newNode;
-			} else {
-				ListNode newNode = new ListNode(cur.val);
-				if (high != null) {
-					ch.next = newNode;
-				} else {
-					high = newNode;
-				}
-				ch = newNode;
-			}
-			cur = cur.next;
-		}
-		if (low != null) {
-			cl.next = high;
-			return low;
-		} else {
-			return high;
-		}
-	}
+        ListNode start = new ListNode(0);
+        start.next = head;
+        ListNode slow = start;
+        while (slow.next != null) {
+            if (slow.next.val < x) {
+                slow = slow.next;
+            } else {
+                break;
+            }
+        }
+        ListNode fast = slow;
+        while (fast.next != null) {
+            if (fast.next.val >= x) {
+                fast = fast.next;
+            } else {
+                ListNode target = fast.next;
+                fast.next = target.next;
+                target.next = slow.next;
+                slow.next = target;
+                slow = slow.next;
+            }
+        }
+        return start.next;
+    }
 }
