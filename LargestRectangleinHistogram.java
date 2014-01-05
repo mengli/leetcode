@@ -1,4 +1,5 @@
-
+import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Given n non-negative integers representing the histogram's bar height where
@@ -14,35 +15,20 @@
  */
 
 public class LargestRectangleinHistogram {
-	// O(n) using two stacks
 	public int largestRectangleArea(int[] height) {
-		int area = 0;
-		java.util.Stack<Integer> heightStack = new java.util.Stack<Integer>();
-		java.util.Stack<Integer> indexStack = new java.util.Stack<Integer>();
-		for (int i = 0; i < height.length; i++) {
-			if (heightStack.empty() || heightStack.peek() <= height[i]) {
-				heightStack.push(height[i]);
-				indexStack.push(i);
-			} else if (heightStack.peek() > height[i]) {
-				int j = 0;
-				while (!heightStack.empty() && heightStack.peek() > height[i]) {
-					j = indexStack.pop();
-					int currArea = (i - j) * heightStack.pop();
-					if (currArea > area) {
-						area = currArea;
-					}
-				}
-				heightStack.push(height[i]);
-				indexStack.push(j);
+		Stack<Integer> stack = new Stack<Integer>();
+		int i = 0;
+		int maxArea = 0;
+		int[] h = new int[height.length + 1];
+		h = Arrays.copyOf(height, height.length + 1);
+		while (i < h.length) {
+			if (stack.isEmpty() || h[stack.peek()] <= h[i]) {
+				stack.push(i++);
+			} else {
+				int t = stack.pop();
+				maxArea = Math.max(maxArea, h[t] * (stack.isEmpty() ? i : i - stack.peek() - 1));
 			}
 		}
-		while (!heightStack.empty()) {
-			int currArea = (height.length - indexStack.pop())
-					* heightStack.pop();
-			if (currArea > area) {
-				area = currArea;
-			}
-		}
-		return area;
+		return maxArea;
 	}
 }
