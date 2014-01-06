@@ -1,5 +1,3 @@
-
-
 /**
  * Implement int sqrt(int x).
  * 
@@ -8,12 +6,21 @@
 
 public class Sqrtx {
 	public int sqrt(int x) {
-		double x0 = x / 2.0;
-		double x1 = (x0 + x / x0) / 2.0;
-		while (Math.abs(x1 - x0) > 0.00001) {
-			x0 = x1;
-			x1 = (x0 + x / x0) / 2.0;
-		}
-		return (int) x1;
-	}
+        if (x == 0 || x == 1) return x;
+        long low = 1;
+        long high = x;
+        long mid = 0;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (mid * mid <= x && (mid + 1) * (mid + 1) > x) {
+            	break;
+            }
+            if (mid * mid > x) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return new Long(mid).intValue();
+    }
 }
