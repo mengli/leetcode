@@ -15,49 +15,39 @@
 
 public class MinimumWindowSubstring {
 	public String minWindow(String S, String T) {
-		int sLen = S.length();
-		int tLen = T.length();
-		int[] needToFind = new int[256];
-
-		for (int i = 0; i < tLen; i++)
-			needToFind[T.charAt(i)]++;
-
 		int[] hasFound = new int[256];
-		int minWindowLen = Integer.MAX_VALUE;
-		int minWindowBegin = 0;
-		int minWindowEnd = 0;
-		int count = 0;
-		for (int begin = 0, end = 0; end < sLen; end++) {
-			// skip characters not in T
-			if (needToFind[S.charAt(end)] == 0)
-				continue;
-			hasFound[S.charAt(end)]++;
-			if (hasFound[S.charAt(end)] <= needToFind[S.charAt(end)])
-				count++;
-
-			// if window constraint is satisfied
-			if (count == tLen) {
-				// advance begin index as far right as possible,
-				// stop when advancing breaks window constraint.
-				while (needToFind[S.charAt(begin)] == 0
-						|| hasFound[S.charAt(begin)] > needToFind[S
-								.charAt(begin)]) {
-					if (hasFound[S.charAt(begin)] > needToFind[S.charAt(begin)])
-						hasFound[S.charAt(begin)]--;
-					begin++;
+		int[] needFound = new int[256];
+		int diffCount = T.length();
+		int length = S.length();
+		String window = "";
+		int size = Integer.MAX_VALUE;
+		if (length == 0 || diffCount == 0)
+			return window;
+		for (int l = 0; l < diffCount; l++) {
+			needFound[T.charAt(l)]++;
+		}
+		int i = 0, j = 0;
+		while (j < length) {
+			char c = S.charAt(j);
+			if (needFound[c] > 0 && ++hasFound[c] <= needFound[c]) {
+				diffCount--;
+			}
+			if (diffCount == 0) {
+				while (i <= j) {
+					char h = S.charAt(i);
+					i++;
+					if (needFound[h] > 0 && --hasFound[h] < needFound[h]) {
+						if (j - i + 1 < size) {
+							size = j - i + 1;
+							window = S.substring(i - 1, j + 1);
+						}
+						diffCount++;
+						break;
+					}
 				}
-
-				// update minWindow if a minimum length is met
-				int windowLen = end - begin + 1;
-				if (windowLen < minWindowLen) {
-					minWindowBegin = begin;
-					minWindowEnd = end;
-					minWindowLen = windowLen;
-				} // end if
-			} // end if
-		} // end for
-
-		return (count == tLen) ? S.substring(minWindowBegin, minWindowEnd + 1)
-				: "";
+			}
+			j++;
+		}
+		return window;
 	}
 }
