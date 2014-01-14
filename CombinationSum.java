@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,14 +10,13 @@ import java.util.Arrays;
  * 
  * Note:
  * 
- * All numbers (including target) will be positive integers. 
+ * All numbers (including target) will be positive integers.
  * 
- * Elements in a combination (a1, a2, ... , ak) must be in non-descending order. (ie, a1 <= a2 <= ... <= ak).
+ * Elements in a combination (a1, a2, ... , ak) must be in non-descending order.
+ * (ie, a1 <= a2 <= ... <= ak).
  * 
- * The solution set must not contain duplicate combinations. 
- * For example, given candidate set 2,3,6,7 and target 7, A solution set is: 
- * [7]
- * [2, 2, 3]
+ * The solution set must not contain duplicate combinations. For example, given
+ * candidate set 2,3,6,7 and target 7, A solution set is: [7] [2, 2, 3]
  */
 
 public class CombinationSum {
@@ -38,20 +36,12 @@ public class CombinationSum {
 			ret.add(new ArrayList<Integer>(solution));
 			return;
 		}
-		if (start > candidates.length - 1)
+		if (sum > target)
 			return;
-		int times = 0;
-		while (true) {
-			if (sum > target) {
-				for (int h = 0; h < times; h++) {
-					solution.remove(solution.size() - 1);
-				}
-				break;
-			}
-			combinationSum(candidates, start + 1, sum, target, ret, solution);
-			sum += candidates[start];
-			solution.add(candidates[start]);
-			times++;
+		for (int i = start; i < candidates.length; i++) {
+			solution.add(candidates[i]);
+			combinationSum(candidates, start, sum + candidates[i], target, ret, solution);
+			solution.remove(solution.size() - 1);
 		}
 	}
 }
