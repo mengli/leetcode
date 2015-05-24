@@ -51,6 +51,7 @@ public class MaxPointsOnALine {
 					+ Double.toString(mIntercept).hashCode();
 		}
 	}
+
 	public int maxPoints(Point[] points) {
 		Map<Line, Integer> map = new HashMap<Line, Integer>();
 		int ret = 0;
@@ -61,6 +62,7 @@ public class MaxPointsOnALine {
 				Line line = null;
 				if (points[j].x == points[i].x) {
 					if (points[j].y == points[i].y) {
+						// Record how many times the same "start" point occurs.
 						dup++;
 						continue;
 					}
@@ -78,15 +80,15 @@ public class MaxPointsOnALine {
 					map.put(line, 2);
 				}
 			}
+			// Now check all lines which contains the current "start" point (point[i]).
 			for (Integer count : map.values()) {
 				ret = Math.max(ret, count.intValue() + dup);
 			}
 			map.clear();
 		}
+		// If we got ret as 0, all points in input array should be exactly the
+		// same point so that we cannot construct a line. So just need to return
+		// the length of the input array since all these points are in the same line.
 		return ret > 0 ? ret : points.length;
-	}
-
-	public static void main(String[] args) {
-		System.out.println(new MaxPointsOnALine().maxPoints(new Point[] {new Point(0,0),new Point(0,0)}));
 	}
 }
