@@ -1,10 +1,8 @@
-
-
 public class TreeLinkNode {
-	int val;
-	TreeLinkNode left, right, next;
+  int val;
+  TreeLinkNode left, right, next;
 
-	TreeLinkNode(int x) {
-		val = x;
-	}
+  TreeLinkNode(int x) {
+    val = x;
+  }
 }
