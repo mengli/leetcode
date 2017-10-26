@@ -22,10 +22,11 @@ class ZigZagConversion {
         if (numRows <= 1) {
             return s;
         }
-		// Row index of each char in ZigZag form
+        // Row index of each char in ZigZag form
         int[] rowIndex = new int[s.length()];
         int row = -1;
-        boolean down = true; // Simlate the movement of ZigZag, up or down
+        // Simlate the movement of ZigZag, up or down
+        boolean down = true;
         for (int i = 0; i < rowIndex.length; i++) {
             if (down) {
                 row += 1;
