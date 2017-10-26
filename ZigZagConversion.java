@@ -17,23 +17,38 @@ import java.util.ArrayList;
  * convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
  */
 
-public class ZigZagConversion {
-	public String convert(String s, int nRows) {
-		if (nRows <= 1 || s.length() < 2)
-			return s;
-		ArrayList<StringBuilder> sbs = new ArrayList<StringBuilder>();
-		for (int k = 0; k < nRows; k++) {
-			sbs.add(new StringBuilder());
-		}
-		int nCount = 2 * (nRows - 1);
-		for (int i = 0; i < s.length(); i++) {
-			sbs.get(nRows - 1 - Math.abs(nRows - 1 - (i % nCount))).append(
-					s.charAt(i));
-		}
-		StringBuilder sb = new StringBuilder();
-		for (int j = 0; j < nRows; j++) {
-			sb.append(sbs.get(j));
-		}
-		return sb.toString();
-	}
+class ZigZagConversion {
+    public String convert(String s, int numRows) {
+        if (numRows <= 1) {
+            return s;
+        }
+		// Row index of each char in ZigZag form
+        int[] rowIndex = new int[s.length()];
+        int row = -1;
+        boolean down = true; // Simlate the movement of ZigZag, up or down
+        for (int i = 0; i < rowIndex.length; i++) {
+            if (down) {
+                row += 1;
+                rowIndex[i] = row;
+                if (row == numRows - 1) {
+                    down = false;
+                }
+            } else {
+                row -= 1;
+                rowIndex[i] = row;
+                if (row == 0) {
+                    down = true;
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int c = 0; c < numRows; c++) {
+            for (int i = 0; i < rowIndex.length; i++) {
+                if (rowIndex[i] == c) {
+                    sb.append(s.charAt(i));
+                }
+            }
+        }
+        return sb.toString();
+    }
 }
