@@ -21,16 +21,17 @@
 
 public class ReverseInteger {
 	public int reverse(int x) {
-		long num = Math.abs(x);
+        long l = x;
+		long num = Math.abs(l);
 		long ret = 0;
 		while (num != 0) {
-			int d = num - num / 10 * 10;
+			long d = num - num / 10 * 10;
 			ret = ret * 10 + d;
 			num /= 10;
 		}
 		if (x < 0)
-			return -ret < -2147483648 ? 0 : -ret;
+			return (int) (-ret < -2147483648 ? 0 : -ret);
 		else
-			return ret > 2147483647 ? 0 : ret;
+			return (int) (ret > 2147483647 ? 0 : ret);
 	}
 }
