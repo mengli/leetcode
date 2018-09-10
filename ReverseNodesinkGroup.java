@@ -18,33 +18,37 @@
  */
 public class ReverseNodesinkGroup {
   public ListNode reverseKGroup(ListNode head, int k) {
-    if (head == null) return null;
-    int t = 0;
-    ListNode nextHead = head;
-    while (nextHead != null && t < k - 1) {
-      nextHead = nextHead.next;
-      t++;
-    }
-    if (nextHead == null || t < k - 1) {
+    if (head == null || k < 2) {
       return head;
-    } else {
-      ListNode nextPart = reverseKGroup(nextHead.next, k);
-      return reverseList(head, k, nextPart);
     }
+    int count = 0;
+    ListNode root = new ListNode(0);
+    root.next = head;
+    ListNode start = head;
+    ListNode end = start;
+    while (count < k - 1 && end != null && end.next != null) {
+      count++;
+      end = end.next;
+    }
+    if (count == k - 1) {
+      ListNode nextStart = end.next;
+      end.next = null;
+      reverseList(start);
+      root.next = end;
+      start.next = reverseKGroup(nextStart, k);
+    }
+    return root.next;
   }
 
-  private ListNode reverseList(ListNode head, int k, ListNode nextPart) {
-    ListNode cur = head, prev = null, next = null;
-    for (int i = 0; i < k; i++) {
+  private void reverseList(ListNode start) {
+    ListNode next;
+    ListNode cur = start;
+    ListNode prev = null;
+    while (cur != null) {
       next = cur.next;
-      if (i != 0) {
-        cur.next = prev;
-      } else {
-        cur.next = nextPart;
-      }
+      cur.next = prev;
       prev = cur;
       cur = next;
     }
-    return prev;
   }
 }
