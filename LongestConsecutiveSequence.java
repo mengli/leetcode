@@ -9,27 +9,38 @@ import java.util.HashSet;
  *
  * <p>Your algorithm should run in O(n) complexity.
  */
-public class LongestConsecutiveSequence {
-  public int longestConsecutive(int[] num) {
-    int max = 0;
-    HashSet<Integer> h = new HashSet<Integer>();
-    for (int n : num) {
-      h.add(n);
+class Solution {
+  public int longestConsecutive(int[] nums) {
+    if (nums.length == 0) {
+      return 0;
     }
-    for (int n : num) {
-      max = Math.max(max, getCount(h, n, false) + getCount(h, n + 1, true));
-    }
-    return max;
-  }
 
-  public int getCount(HashSet<Integer> h, int value, boolean asc) {
-    int count = 0;
-    while (h.contains(value)) {
-      count++;
-      h.remove(value);
-      if (asc) value++;
-      else value--;
+    Set<Integer> set = new HashSet<Integer>();
+    int max = 1;
+
+    for (int e : nums)
+      set.add(e);
+
+    for (int e : nums) {
+      int left = e - 1;
+      int right = e + 1;
+      int count = 1;
+
+      while (set.contains(left)) {
+        count++;
+        set.remove(left);
+        left--;
+      }
+
+      while (set.contains(right)) {
+        count++;
+        set.remove(right);
+        right++;
+      }
+
+      max = Math.max(count, max);
     }
-    return count;
+
+    return max;
   }
 }

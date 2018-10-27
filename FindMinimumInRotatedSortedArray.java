@@ -14,12 +14,16 @@
  */
 class Solution {
     public int findMin(int[] nums) {
-        if (nums.length == 1) return nums[0];
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
-                return nums[i + 1];
-            }
+        return find(nums, 0, nums.length - 1);
+    }
+
+    private int find(int[] nums, int left, int right) {
+        if (nums[right] >= nums[left]) return nums[left];
+        int mid = (left + right) / 2;
+        if (nums[mid] >= nums[left]) {
+            return find(nums, mid + 1, right);
+        } else {
+            return find(nums, left, mid);
         }
-        return nums[0];
     }
 }
